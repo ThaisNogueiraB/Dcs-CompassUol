@@ -9,7 +9,7 @@ def calc():
 def test_porcentagem(calc, num1, num2, esperado):
     assert calc.porcentagem(num1, num2) == esperado
 
- ''' 
- Informações sobre a implementação foram fornecidas pelo ChatGPT (OpenAI) em conversa no dia 16 de Maio de 2025.
+'''  
+Informações sobre a implementação foram fornecidas pelo ChatGPT (OpenAI) em conversa no dia 16 de Maio de 2025.
 '''
     
