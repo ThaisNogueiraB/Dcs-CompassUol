@@ -10,3 +10,6 @@ class Calculadora:
     
     def multiplicar (self, numb1, numb2):
         return numb1 * numb2
+
+    def potencia (self, numb1, numb2):
+        return numb1 ** numb2
