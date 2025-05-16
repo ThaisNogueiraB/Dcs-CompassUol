@@ -1,64 +1,56 @@
-# 📌 Calculadora - Sprint 05- semana 09
 
-### Projeto desenvolvido utilizando TDD para criar uma calculadora em Python.
-
----
-
-## ✅ **Descrição do Projeto**
-
-Esta aplicação representa uma calculadora que realiza operações matemáticas básicas  utilizando TDD. Cada operação foi desenvolvida seguindo a metodologia:
-
-1️⃣ Escrever o teste primeiro (esperando falhar).
-2️⃣ Implementar a lógica mínima para passar o teste.
-3️⃣ Refatorar o código, se necessário.
+# 📌 Documentação do Projeto
 
 ---
 
-## 🔄 **Funcionalidades Implementadas**
-
-* ✅ Soma
-* ✅ Subtração
-* ✅ Multiplicação
-* ✅ Divisão
-* ✅ Potência
-* ✅ Porcentagem
+## 📋 Sobre o Repositório
+Este repositório contém a documentação e os artefatos gerados durante o desenvolvimento das Sprints do projeto. Os documentos estão organizados branch específicas para cada Sprint, permitindo fácil navegação e acesso às informações de cada fase do projeto.
 
 ---
 
-## ⚙️ **Estrutura de Pastas**
-
-```
-Dcs-CompassUol/
+## 📂 Estrutura de Pastas
+```plaintext
+Documentos/
+├── Sprint01
+│   ├── S01-Checklist R&C User Story - Ruptura.docx
+│   ├── S01-User story.html
+│   ├── S02-Início rápido em teste e QA.pdf
+│   └── S02-Checklist de planejamento de testes.pdf
 │
-├── calculadora/                  # Código-fonte da calculadora
-│   ├── __init__.py
-│   └── calculadora.py
+├── Sprint02
+│   ├── S03-Mapa mental plano de teste.pdf
+│   ├── S03-Plano de Testes - Squad Ruptura.pdf
+│   ├── S04-Squad Ruptura - Gerenciamento de atividades.pdf
+│   └── S03-Resumo Amazon Q Business e Amazon Q Developer.pdf
 │
-├── tests/                        # Testes automatizados
-│   ├── __init__.py
-│   ├── test_somar.py
-│   ├── test_subtrair.py
-│   ├── test_multiplicar.py
-│   ├── test_dividir.py
-│   ├── test_potencia.py
-│   └── test_porcentagem.py
+├── Sprint03
+│   ├── S05-Mapa mental ServeRest.png
+│   ├── S05-Modelo report de bugs.png
+│   ├── S06-Teste Exploratório.pdf
+│   └── S05-Report do Bug Serverest.pdf
 │
-└── README.md                     # Documentação do projeto
-```
+├── Sprint04
+│   ├── S07-Swagger Petstore - Ruptura.postman_collection.json
+│   ├── S07-Swagger Petstorehttpspetstore3.swagger.io.postman_collection.json
+│   ├── S08-Issues e melhorias identificados challenge.png
+│   ├── S08-MAPA MENTAL SERVEREST challenge.jpg
+│   ├── S08-Plano de teste ServeRest challenge.pdf
+│   ├── S08-ServeRest Environment.postman_environment.json
+│   ├── S08-API SeverRest.postman_collection-challenge.json
+│   └── S08-API SeverRest.postman_test_run challenge.json
+│
+└── Sprint05
+    ├── Calculadora/
+    │   ├── __init__.py
+    │   ├── calculadora.py
+    │   └── tests/
+    │       ├── test_somar.py
+    │       ├── test_subtrair.py
+    │       ├── test_multiplicar.py
+    │       ├── test_dividir.py
+    │       ├── test_potencia.py
+    │       └── test_porcentagem.py
+    └── README.md                           
 
----
 
 
-Os testes foram desenvolvidos utilizando **Pytest**.
-
-
-## 📌 **Tecnologias Utilizadas**
-
-* Python 3.9+
-* Pytest para testes automatizados
-* Git e GitHub para controle de versão
-
----
-
-### 📌 **Autor:**
-Thais Nogueira  com apoio do ChatGPT para resolução de problemas.
