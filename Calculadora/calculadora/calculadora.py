@@ -13,3 +13,6 @@ class Calculadora:
 
     def potencia (self, numb1, numb2):
         return numb1 ** numb2
+    
+    def porcentagem (self, numb1, numb2):
+        return (numb1 * numb2) / 100
