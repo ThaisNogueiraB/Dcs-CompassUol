@@ -5,4 +5,7 @@ class Calculadora:
     def subtrair (self, numb1, numb2):
         return numb1 - numb2
     
+    def dividir (self, numb1, numb2):
+        return numb1 / numb2
+    
     
