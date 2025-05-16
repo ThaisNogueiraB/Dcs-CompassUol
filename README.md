@@ -1,3 +1,4 @@
+
 # 📌 Documentação do Projeto
 
 ---
@@ -28,14 +29,28 @@ Documentos/
 │   ├── S06-Teste Exploratório.pdf
 │   └── S05-Report do Bug Serverest.pdf
 │
-└── Sprint04
-    ├── S07-Swagger Petstore - Ruptura.postman_collection.json
-    ├── S07-Swagger Petstorehttpspetstore3.swagger.io.postman_collection.json
-    ├── S08-Issues e melhorias identificados challenge.png
-    ├── S08-MAPA MENTAL SERVEREST challenge.jpg
-    ├── S08-Plano de teste ServeRest challenge.pdf
-    ├── S08-ServeRest Environment.postman_environment.json
-    ├── S08-API SeverRest.postman_collection-challenge.json
-    └── S08-API SeverRest.postman_test_run challenge.json
+├── Sprint04
+│   ├── S07-Swagger Petstore - Ruptura.postman_collection.json
+│   ├── S07-Swagger Petstorehttpspetstore3.swagger.io.postman_collection.json
+│   ├── S08-Issues e melhorias identificados challenge.png
+│   ├── S08-MAPA MENTAL SERVEREST challenge.jpg
+│   ├── S08-Plano de teste ServeRest challenge.pdf
+│   ├── S08-ServeRest Environment.postman_environment.json
+│   ├── S08-API SeverRest.postman_collection-challenge.json
+│   └── S08-API SeverRest.postman_test_run challenge.json
+│
+└── Sprint05
+    ├── Calculadora/
+    │   ├── __init__.py
+    │   ├── calculadora.py
+    │   └── tests/
+    │       ├── test_somar.py
+    │       ├── test_subtrair.py
+    │       ├── test_multiplicar.py
+    │       ├── test_dividir.py
+    │       ├── test_potencia.py
+    │       └── test_porcentagem.py
+    └── README.md                           
+
 
 
