@@ -43,6 +43,8 @@ Documentos/
     ├── Calculadora/
     │   ├── __init__.py
     │   ├── calculadora.py
+    │   ├── Cobertura/
+    │   │   └── test_cobertura.pdf        
     │   └── tests/
     │       ├── test_somar.py
     │       ├── test_subtrair.py
@@ -50,7 +52,6 @@ Documentos/
     │       ├── test_dividir.py
     │       ├── test_potencia.py
     │       └── test_porcentagem.py
-    └── README.md                           
-
+    └── README.md 
 
 
