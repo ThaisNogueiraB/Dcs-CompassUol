@@ -8,4 +8,5 @@ class Calculadora:
     def dividir (self, numb1, numb2):
         return numb1 / numb2
     
-    
+    def multiplicar (self, numb1, numb2):
+        return numb1 * numb2
