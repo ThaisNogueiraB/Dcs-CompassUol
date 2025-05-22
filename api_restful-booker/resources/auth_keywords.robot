@@ -10,12 +10,12 @@ ${PASSWORD}    password123
 
 
 *** Keywords ***
-Criar sessao Restful
-    Create Session    alias=Restful    url=${BASE_URL}    headers=${HEADERS}
+Criar sessao Restful-booker
+    Create Session    alias=Restful-booker    url=${BASE_URL}    headers=${HEADERS}
 
 POST- Criar token com sucesso
     ${payload}     Create Dictionary    username=${USERNAME}    password=${PASSWORD}
-    ${response}    POST On Session    alias=Restful   url=/auth    json=${payload}
+    ${response}    POST On Session    alias=Restful-booker   url=/auth    json=${payload}
     Should Be True    ${response.status_code} == 200
     ${json}=    Set Variable    ${response.json()}    json
     Set Suite Variable    ${auth_token}    ${json[0]['token']}
