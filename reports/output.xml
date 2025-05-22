@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-22T16:59:47.456111" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Auth" source="C:\Dcs-CompassUol\api_restful-booker\tests\test_auth.robot">
+<test id="s1-t1" name="Cenario 01- Criar um novo token com sucesso 200" line="6">
+<kw name="Criar sessao Restful" owner="auth_keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-22T16:59:47.814931" level="INFO">Creating Session using : alias=Restful, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=Restful</arg>
+<arg>url=${BASE_URL}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-22T16:59:47.814685" elapsed="0.000434"/>
+</kw>
+<status status="PASS" start="2025-05-22T16:59:47.814250" elapsed="0.000951"/>
+</kw>
+<kw name="POST- Criar token com sucesso" owner="auth_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-22T16:59:47.815816" level="INFO">${payload} = {'username': 'admin', 'password': 'password123'}</msg>
+<var>${payload}</var>
+<arg>username=${USERNAME}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-22T16:59:47.815600" elapsed="0.000237"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-22T16:59:48.575649" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+ path_url=/auth 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '48'} 
+ body=b'{"username": "admin", "password": "password123"}' 
+ </msg>
+<msg time="2025-05-22T16:59:48.575862" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+ status=200, reason=OK 
+ headers={'Content-Length': '27', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Thu, 22 May 2025 19:59:48 GMT', 'Etag': 'W/"1b-/z4kleI7j/bYObtkXE/5DrwmfAs"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=u2KsK7rUXIIjhIAvS29N%2BmnRBkeEf4YHIiepuD66IgQ%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1747943988"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=u2KsK7rUXIIjhIAvS29N%2BmnRBkeEf4YHIiepuD66IgQ%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1747943988"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body={"token":"e3cfbe5253138a5"} 
+ </msg>
+<msg time="2025-05-22T16:59:48.575979" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-05-22T16:59:48.576223" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=Restful</arg>
+<arg>url=/auth</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-22T16:59:47.815912" elapsed="0.760336"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${response.status_code} == 200</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-05-22T16:59:48.576387" elapsed="0.000631"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-22T16:59:48.577382" level="INFO">${json} = [{'token': 'e3cfbe5253138a5'}, 'json']</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<arg>json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-22T16:59:48.577102" elapsed="0.000299"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-05-22T16:59:48.578034" level="INFO">${auth_token} = e3cfbe5253138a5</msg>
+<arg>${auth_token}</arg>
+<arg>${json[0]['token']}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-05-22T16:59:48.577478" elapsed="0.000586"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-22T16:59:48.578367" level="INFO">{'token': 'e3cfbe5253138a5'}</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-22T16:59:48.578127" elapsed="0.000269"/>
+</kw>
+<status status="PASS" start="2025-05-22T16:59:47.815403" elapsed="0.763040"/>
+</kw>
+<tag>POSTTOKEN</tag>
+<status status="PASS" start="2025-05-22T16:59:47.813515" elapsed="0.765169"/>
+</test>
+<status status="PASS" start="2025-05-22T16:59:47.457223" elapsed="1.122057"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">POSTTOKEN</stat>
+</tag>
+<suite>
+<stat name="Test Auth" id="s1" pass="1" fail="0" skip="0">Test Auth</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
