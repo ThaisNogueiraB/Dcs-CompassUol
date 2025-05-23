@@ -1,4 +1,3 @@
-
 *** Settings ***
 Library    RequestsLibrary
 
@@ -17,7 +16,11 @@ POST- Criar token com sucesso
     ${payload}     Create Dictionary    username=${USERNAME}    password=${PASSWORD}
     ${response}    POST On Session    alias=Restful-booker   url=/auth    json=${payload}
     Should Be True    ${response.status_code} == 200
-    ${json}=    Set Variable    ${response.json()}    json
+
+    ${json}=   Set Variable    ${response.json()}    json 
     Set Suite Variable    ${auth_token}    ${json[0]['token']}
+
+    Log    Token gerado: ${auth_token}
     Log    ${response.json()}
+    
 
