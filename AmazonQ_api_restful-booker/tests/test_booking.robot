@@ -1,6 +1,6 @@
 *** Settings ***
-Resource    auth_keywords.robot
-Resource    booking_keywords.robot
+Resource    ../resources/auth_keywords.robot
+Resource    ../resources/booking_keywords.robot
 Test Setup    Criar sessao Restful-booker
 
 *** Test Cases ***
@@ -27,7 +27,7 @@ Cenario 05- Atualizar reserva com sucesso 200
     [Tags]    ATUALIZARESERVATOTAL
     ${token}    POST- Criar token com sucesso
     ${booking_id}    POST- Criar reserva
-    ${updated_booking}    PUT- Atualizar reserva    ${booking_id}    ${token}
+    ${updated_booking}    PUT- Atualizar reserva completa   ${booking_id}    ${token}
 
 Cenario 06- Atualizar reserva parcial com sucesso 200
     [Tags]    ATUALIZARESERVAPARCIAL
