@@ -2,30 +2,56 @@
 readme_content = """
 # API Restful-Booker - Testes Automatizados
 
-Este projeto contém a automação de testes para a API [Restful-Booker](https://restful-booker.herokuapp.com) utilizando **Robot Framework**.
+Este projeto contém a automação de testes para a API [Restful-Booker](https://restful-booker.herokuapp.com) utilizando **Robot Framework** com o uso do **Amazon Q**.
 
-## ✅ Estrutura dos Testes
 
-- **auth_keywords.robot**  
-  Responsável pelos testes de autenticação, geração de token e criação de sessão.
+# Avaliação do uso do Amazon Q na melhoria do código
 
-- **booking_keywords.robot**  
-  Responsável pelos testes CRUD de reservas:  
-  - Criar reserva  
-  - Obter reserva  
-  - Atualizar reserva (PUT e PATCH)  
-  - Excluir reserva  
+## **Pontos onde o uso do Amazon Q foi efetivo:**
 
-- **test_booking.robot**  
-  Suite principal que executa os cenários completos de teste.
+1. ✅ **Inserção correta de `Documentation`**
+    
+    ➞ O Amazon Q adicionou descrições **em português** explicando cada **seção** dos arquivos, deixando o código mais **documentado** e **autoexplicativo**.
+    
 
-## ✅ Funcionalidades Testadas
+---
 
-- **Autenticação**: Geração e armazenamento do token.  
-- **POST**: Criação de nova reserva.  
-- **GET**: Consulta de reserva pelo ID.  
-- **PUT**: Atualização total de uma reserva existente.  
-- **PATCH**: Atualização parcial da reserva.  
-- **DELETE**: Exclusão da reserva.
+1. ✅ **Adição de argumentos nas Keywords**
+    
+    ➞ O Amazon Q incluiu **parâmetros adicionais** nas Keywords, melhorando a **flexibilidade** e a **reutilização** do código.
+    
 
+---
+
+1. ✅ **Utilização da FakerLibrary**
+    
+    ➞ O Amazon Q sugeriu e implementou o uso da **FakerLibrary**, permitindo gerar **dados dinâmicos** para os testes, o que melhora a **variabilidade** e a **robustez** das execuções.
+    
+
+---
+
+## ✅ **Pontos onde o uso do Amazon Q não foi efetivo:**
+
+1. ❌ **Ausência de `Log` explícito de status e resposta**
+    
+    ➞ O código gerado ou sugerido não adicionou **logs** para mostrar claramente o **status** e a **resposta** das requisições, tornando a execução **menos informativa**.
+    
+
+---
+
+1. ❌ **Alterou automaticamente todos os arquivos**
+    
+    ➞ O Amazon Q fez alterações **em massa** na estrutura do projeto, **desconfigurando** a organização e exigindo um grande esforço para **revisar ou desfazer** as mudanças.
+    
+    ➡️ Por isso, **não foi utilizado**.
+    
+
+---
+
+1. ❌ **Reorganização excessiva da estrutura**
+    
+    ➞ A criação da pasta `suporte` e do arquivo `common.robot` foi feita de forma automática, mas não se adequou ao **contexto real** do projeto, gerando mais **complexidade** do que benefício.
+    
+
+➡️ A reorganização foi **proposta**, mas **não utilizada**.
   
