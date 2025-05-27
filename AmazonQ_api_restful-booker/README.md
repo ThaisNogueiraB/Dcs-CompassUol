@@ -1,5 +1,4 @@
 
-readme_content = """
 # API Restful-Booker - Testes Automatizados
 
 Este projeto contém a automação de testes para a API [Restful-Booker](https://restful-booker.herokuapp.com) utilizando **Robot Framework** com o uso do **Amazon Q**.
