@@ -53,4 +53,3 @@ Este projeto contém a automação de testes para a API [Restful-Booker](https:/
     
 
 ➡️ A reorganização foi **proposta**, mas **não utilizada**.
-  
