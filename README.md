@@ -88,3 +88,4 @@ Este repositório contém a documentação e os artefatos gerados durante o dese
 - `README.md`
 - `S011- Avaliação do uso do Amazon Q.pdf`
 
+### S11-Guia de Configuração EC2 + Serverest.df
