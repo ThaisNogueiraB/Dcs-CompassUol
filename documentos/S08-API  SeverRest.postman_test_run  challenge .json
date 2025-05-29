@@ -1,0 +1,239 @@
+{
+	"id": "165a9be2-800f-4dcd-995b-34f8f67b697e",
+	"name": "API  SeverRest",
+	"timestamp": "2025-05-09T17:15:41.469Z",
+	"collection_id": "44511792-9699c465-f798-415e-b200-f6d4894d7295",
+	"folder_id": "44511792-3a86d54a-856b-4b0d-a18d-085867c7be9c",
+	"environment_id": "44511792-e75de3b3-05df-47b1-8073-7bfce01b6d6e",
+	"totalPass": 7,
+	"delay": "300",
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-09T17:15:36.745Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "d9a0e66b-685c-40dd-bb94-be0be52c6192",
+			"name": "CT001-Cadastro de usuario valido Copy",
+			"url": "https://compassuol.serverest.dev/usuarios",
+			"time": 464,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Usuário cadastrado com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Usuário cadastrado com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				464
+			],
+			"allTests": [
+				{
+					"Usuário cadastrado com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "c43d77a1-e42c-47f9-89b7-cc60eeda5074",
+			"name": "CT018 -Login com credenciais válidas Copy",
+			"url": "https://compassuol.serverest.dev/login",
+			"time": 168,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Login realizado com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Login realizado com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				168
+			],
+			"allTests": [
+				{
+					"Login realizado com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "e0e96d25-02e6-4f53-bc70-893a0a8bc69a",
+			"name": "CT026 - Cadastro de produto valido Copy",
+			"url": "https://compassuol.serverest.dev/produtos",
+			"time": 194,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Produto cadastrado com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Produto cadastrado com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				194
+			],
+			"allTests": [
+				{
+					"Produto cadastrado com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "9c24be63-757c-45f4-a282-5821397679bf",
+			"name": "CT043 -Criação de carrinho válido Copy",
+			"url": "https://compassuol.serverest.dev/carrinhos",
+			"time": 190,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Carrinho criado com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Carrinho criado com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				190
+			],
+			"allTests": [
+				{
+					"Carrinho criado com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "87613000-7e84-4d46-af61-9eb16a7471b6",
+			"name": "CT047-Visualização de carrinho válido Copy",
+			"url": "https://compassuol.serverest.dev/carrinhos/evYrNQGD1bz0XZvC",
+			"time": 174,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Carrinho visualizado com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Carrinho visualizado com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				174
+			],
+			"allTests": [
+				{
+					"Carrinho visualizado com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "6d0b73d2-1a30-433b-bf01-1b54238878bd",
+			"name": "CT050 -Finalização de compra com carrinho válido Copy",
+			"url": "https://compassuol.serverest.dev/carrinhos/concluir-compra",
+			"time": 187,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Compra finalizada com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Compra finalizada com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				187
+			],
+			"allTests": [
+				{
+					"Compra finalizada com sucesso": true
+				}
+			]
+		},
+		{
+			"id": "01641aac-462e-4152-baa2-a12f066d25de",
+			"name": "CT054- Cancelamento de compra com carrinho válido Copy",
+			"url": "https://compassuol.serverest.dev/carrinhos/cancelar-compra",
+			"time": 165,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Carrinho cancelado com sucesso": true
+			},
+			"testPassFailCounts": {
+				"Carrinho cancelado com sucesso": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				165
+			],
+			"allTests": [
+				{
+					"Carrinho cancelado com sucesso": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1542,
+	"collection": {
+		"requests": [
+			{
+				"id": "d9a0e66b-685c-40dd-bb94-be0be52c6192",
+				"method": "POST"
+			},
+			{
+				"id": "c43d77a1-e42c-47f9-89b7-cc60eeda5074",
+				"method": "POST"
+			},
+			{
+				"id": "e0e96d25-02e6-4f53-bc70-893a0a8bc69a",
+				"method": "POST"
+			},
+			{
+				"id": "9c24be63-757c-45f4-a282-5821397679bf",
+				"method": "POST"
+			},
+			{
+				"id": "87613000-7e84-4d46-af61-9eb16a7471b6",
+				"method": "GET"
+			},
+			{
+				"id": "6d0b73d2-1a30-433b-bf01-1b54238878bd",
+				"method": "DELETE"
+			},
+			{
+				"id": "01641aac-462e-4152-baa2-a12f066d25de",
+				"method": "DELETE"
+			}
+		]
+	}
+}
