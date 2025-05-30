@@ -86,7 +86,7 @@ Este repositório contém a documentação e os artefatos gerados durante o dese
 - `test_booking.robot`
 
 - `README.md`
-- `S011- Avaliação do uso do Amazon Q.pdf`
+
 
 #### S11- Avaliação do uso do Amazon Q na melhoria do código.pdf
 #### S11-Guia de Configuração EC2 + Serverest.df
