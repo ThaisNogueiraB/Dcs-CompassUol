@@ -88,5 +88,7 @@ Este repositório contém a documentação e os artefatos gerados durante o dese
 - `README.md`
 - `S011- Avaliação do uso do Amazon Q.pdf`
 
-### S11- Avaliação do uso do Amazon Q na melhoria do código.pdf
-### S11-Guia de Configuração EC2 + Serverest.df
+#### S11- Avaliação do uso do Amazon Q na melhoria do código.pdf
+#### S11-Guia de Configuração EC2 + Serverest.df
+#### S11- Plano de teste Serverest Atualizado.pdf
+#### S11 -Descrição das Alterações Realizadas no Plano de teste.pdf
