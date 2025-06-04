@@ -92,3 +92,9 @@ Este repositório contém a documentação e os artefatos gerados durante o dese
 #### S11-Guia de Configuração EC2 + Serverest.df
 #### S11- Plano de teste Serverest Atualizado.pdf
 #### S11 -Descrição das Alterações Realizadas no Plano de teste.pdf
+
+#### API-Serverest- teste manual
+- `API SeverRest -Challenge.postman_collection.json`
+- `ServeRest Environment.postman_environment.json`
+- `Test Cycles QAlity.pdf`
+-  `Test_Execution_Report_03.06.2025 (1).xlsx`
