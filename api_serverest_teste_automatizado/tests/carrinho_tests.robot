@@ -1,10 +1,10 @@
 *** Settings ***    
-Documentation    Arquivo de testes para Endpoint/carrinho    
+Documentation    Arquivo de testes para Endpoint/carrinho 
+Resource    ../keywords/carrinho_keywords.robot
+Suite Setup     Criar Sessao  
 
 *** Test Cases ***
 CT-027:Criação de carrinho válido
-
-    Criar Sessao
     
     Cadastrar produto e obter ID
     
@@ -19,8 +19,6 @@ CT-027:Criação de carrinho válido
 
 CT-029: Criação de carrinho com produto inexistente
     
-    Criar Sessao
-    
     Montar payload com ID de produto inexistente
     
     Enviar requisição POST para /carrinhos
@@ -31,8 +29,6 @@ CT-029: Criação de carrinho com produto inexistente
 
 CT-031: Visualização de carrinho válido
 
-    Criar Sessao
-    
     Criar carrinho e obter ID
     
     Autenticar usuário
@@ -44,8 +40,6 @@ CT-031: Visualização de carrinho válido
     Verificar se produtos estão presentes na resposta
 
 CT-032: Finalização de compra com carrinho válido
-
-    Criar Sessao
     
     Criar carrinho com produtos válidos
     

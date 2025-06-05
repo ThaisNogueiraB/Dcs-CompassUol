@@ -1,10 +1,10 @@
 *** Settings ***    
-Documentation    Arquivo de testes para Endpoint/produtos    
+Documentation    Arquivo de testes para Endpoint/produtos  
+Resource    ../keywords/produtos_keywords.robot
+Suite Setup     Criar Sessao  
 
 *** Test Cases ***
 CT-017:Cadastro de produto válido
-
-    Criar Sessao
 
     Autenticar usuário e obter token JWT
     
@@ -15,8 +15,6 @@ CT-017:Cadastro de produto válido
     Verificar mensagem de sucesso e presença do ID do produto
 
 CT-021 - - Atualização de produto válido
-
-    Criar Sessao
     
     Cadastrar um produto previamente
 
@@ -27,8 +25,6 @@ CT-021 - - Atualização de produto válido
     Verificar mensagem de sucesso e alterações aplicadas
 
 CT-023 - - Listagem de produtos válida
-
-    Criar Sessao
     
     Autenticar usuário e obter token JWT
     
@@ -39,8 +35,6 @@ CT-023 - - Listagem de produtos válida
     Verificar que a lista contém produtos válidos
 
 CT-025 - - Exclusão de produto válido
-
-    Criar Sessao
     
     Cadastrar produto sem vínculo com carrinho
     
@@ -51,8 +45,6 @@ CT-025 - - Exclusão de produto válido
     Verificar mensagem de sucesso
 
 CT-026 - - Exclusão de produto vinculado a carrinho
-
-    Criar Sessao
     
     Criar carrinho com um produto
     

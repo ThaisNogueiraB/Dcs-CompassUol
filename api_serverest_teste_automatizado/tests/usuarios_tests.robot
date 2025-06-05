@@ -1,65 +1,66 @@
 *** Settings ***    
 Documentation    Arquivo de testes para Endpoint/usuarios    
+Resource    ../keywords/usuarios_keywords.robot
+Suite Setup     Criar Sessao   
 
 *** Test Cases ***
 CT-001: Cadastro de usuário válido
-    Criar Sessao 
 
-    Montar payload JSON com os dados
+    [Tags]    Postusuario
+
+    Criar dados validos
 
     Enviar requisição POST para /usuarios
 
-    Validar status code 201
+    Extrair ID do usuário criado
 
-    Validar presença de _id e mensagem de sucesso na resposta
+    Validar status code "201"
+
+    Validar retorno 
+
 
 CT-006:Alterar usuário válido
 
-     Criar Sessao 
+    [Tags]    Putusuario
 
-    Cadastrar um usuário previamente
+    Alterar nome valido
 
-    Enviar requisição PUT para /usuarios/{_id} com o ID do usuário
+    Enviar requisição PUT para /usuarios com o ID do usuário    ${id}    ${payload}
     
-    Validar status code 200
+    Validar status code "200"
     
-    Verificar mensagem de sucesso na resposta
+    Validar retorno 
 
 CT-010: Listagem de usuários válida
 
-    Criar Sessao
+    [Tags]    Getusuario
 
-    Cadastrar pelo menos um usuário previamente
+    Criar dados validos
+
+    Enviar requisição POST para /usuarios
     
     Enviar requisição GET para /usuarios
     
-    Validar status code 200
+    Validar status code "200"
     
-    Verificar que a lista de usuários foi retornada com os dados esperados
+    Validar retorno 
 
-CT-012:Exclusão de usuário válido
+CT-012:Exclusão de usuário válido 
 
-    Criar Sessao 
+    [Tags]    Deleteusuario
 
-    Cadastrar um usuário previamente
+    Criar dados validos
+
+    Enviar requisição POST para /usuarios
+
     
-    Enviar requisição DELETE para /usuarios/{_id} com o ID do usuário
+    Enviar requisição DELETE para /usuarios com o ID do usuário    ${id}    ${payload}
     
-    Validar status code 200
+    Validar status code "200"
 
-    Verificar mensagem de sucesso na resposta
+    Validar retorno 
 
-CT-016:Expiração de token após 10 minutos
 
-    Criar Sessao
-    
-    Realizar login e salvar o token gerado
-        
-    Tentar acessar um endpoint protegido com o token expirado    
-    
-    Validar status code 401
-    
-    Verificar mensagem de erro informando que o token expirou
     
 
 
