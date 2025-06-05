@@ -14,6 +14,7 @@ Criar Sessao
     Create Session    serveRest    ${BASE_URL}
 
 Validar status code "${statuscode}"
+    ${statuscode}=    Convert To Integer    ${statuscode}
     Should Be Equal As Integers    ${response.status_code}    ${statuscode}
     Log    Status recebido: ${response.status_code}
 

@@ -18,8 +18,8 @@ Cadastrar produto
 
 Enviar requisição POST para /produtos com token
     ${headers}=    Create Dictionary    Authorization=${token}
-    ${response}    POST On Session    serverest    /produtos   headers=${headers}    json=${payload}    expected_status=201
-    Set Suite Variable    ${response}
+    ${response_produto}    POST On Session    serverest    /produtos   headers=${headers}    json=${payload}    expected_status=201  
+    Set Suite Variable    ${response_produto}
 
 
 Alterar nome produto
@@ -28,28 +28,38 @@ Alterar nome produto
     Set Suite Variable    ${payload}
     RETURN    ${payload}
 
+Extrair ID do produto
+    [Arguments]    ${response}
+    ${json}=     Set Variable  ${response_produto.json()}
+    Log          Retorno do produto:\n${json}
+    Should Contain    ${json}    _id
+    ${idproduto}=  Get From Dictionary  ${json}  _id
+    Log          ID do produto: ${idproduto}
+    Set Suite Variable    ${idproduto}    
+
 Enviar requisição PUT para /produtos/id com token
+    [Arguments]  ${idproduto} 
     ${headers}=    Create Dictionary    Authorization=${token}
-    ${response}    PUT On Session    serverest    /produtos   headers=${headers}    json=${payload}    expected_status=201
-    Set Suite Variable    ${response}    
+    ${response_produto}    PUT On Session    serverest    /produtos/${idproduto}   headers=${headers}    json=${payload}    
+    Set Suite Variable    ${response_produto}    
         
 
 Verificar mensagem de sucesso e presença do ID do produto
-    ${json}=    Evaluate    json.dumps(${response.json()}, indent=2)    json
+    ${json}=    Evaluate    json.dumps(${response_produto.json()}, indent=2)    json
     Log    JSON da resposta:\n${json}
     
-    ${message}=    Get From Dictionary    ${response.json()}    message
+    ${message}=    Get From Dictionary    ${response_produto.json()}    message
     Should Be Equal As Strings    ${message}    Cadastro realizado com sucesso
     
-    ${id}=         Get From Dictionary    ${response.json()}    _id
-    Should Not Be Empty    ${id}
-    Log    ID gerado: ${id}
+    ${idproduto}=         Get From Dictionary    ${response_produto.json()}    _id
+    Should Not Be Empty    ${idproduto}
+    Log    ID gerado: ${idproduto}
 
 
 Verificar mensagem de sucesso e alterações aplicadas
-    ${json}=    Evaluate    json.dumps(${response.json()}, indent=2)    json
+    ${json}=    Evaluate    json.dumps(${response_produto.json()}, indent=2)    json
     Log    JSON da resposta:\n${json}
     
-    ${message}=    Get From Dictionary    ${response.json()}    message
+    ${message}=    Get From Dictionary    ${response_produto.json()}    message
     Should Be Equal As Strings    ${message}    Registro alterado com sucesso
     

@@ -22,7 +22,9 @@ CT-017:Cadastro de produto válido
 
     Cadastrar produto
     
-    Enviar requisição POST para /produtos com token  
+    ${response_produto}=    Enviar requisição POST para /produtos com token
+
+    ${idproduto}=    Extrair ID do produto   ${response_produto}  
 
     Validar status code "201"
     
@@ -32,20 +34,6 @@ CT-021 - - Atualização de produto válido
 
     [Tags]    Putproduto
     
-    Criar dados validos
-
-    Enviar requisição POST para /usuarios
-
-    Gerar credenciais
-
-    Enviar requisição POST para /login
-    
-    Salvar token gerado
-
-    Cadastrar produto
-    
-    Enviar requisição POST para /produtos com token
-
     Alterar nome produto
 
     Enviar requisição PUT para /produtos/id com token
