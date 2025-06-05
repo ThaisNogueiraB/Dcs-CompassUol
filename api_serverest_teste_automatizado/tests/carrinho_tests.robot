@@ -29,7 +29,7 @@ CT-027:Criação de carrinho válido
     
     Criar carrinho 
 
-    Enviar requisição POST para /carrinhos
+    Enviar requisição POST para /carrinhos    201
 
     Extrair ID do carrinho    ${response}
     
@@ -38,23 +38,55 @@ CT-027:Criação de carrinho válido
     Verificar ID do carrinho na resposta
 
 
-CT-029: Criação de carrinho com produto inexistente
+CT-029: Criação de carrinho com id inexistente
+
+    Criar dados validos
+
+    Enviar requisição POST para /usuarios
+
+    Gerar credenciais
+
+    Enviar requisição POST para /login
     
-    Montar payload com ID de produto inexistente
+    Salvar token gerado
+
     
-    Enviar requisição POST para /carrinhos
+    Cadastrar produto
+
+    ${response_produto}=    Enviar requisição POST para /produtos com token
+    
+    Extrair ID do produto   ${response_produto}
+
+    
+    Criar carrinho com id inexistente
+    
+    Enviar requisição POST para /carrinhos    400
     
     Validar status code "400"
     
-    Verificar mensagem de erro
+    Verificar mensagem de erro de Produto não encontrado
 
 CT-031: Visualização de carrinho válido
 
-    Criar carrinho e obter ID
+    Criar dados validos
+
+    Enviar requisição POST para /usuarios
+
+    Gerar credenciais
+
+    Enviar requisição POST para /login
     
-    Autenticar usuário
-    
-    Enviar requisição GET para /carrinhos/{_id}
+    Salvar token gerado
+
+
+    Criar carrinho 
+
+    Enviar requisição POST para /carrinhos    201
+
+    Extrair ID do carrinho    ${response}
+
+
+    Enviar requisição GET para /carrinhos
     
     Validar status code "200"
     
@@ -62,35 +94,103 @@ CT-031: Visualização de carrinho válido
 
 CT-032: Finalização de compra com carrinho válido
     
-    Criar carrinho com produtos válidos
+    Criar dados validos
+
+    Enviar requisição POST para /usuarios
+
+    Gerar credenciais
+
+    Enviar requisição POST para /login
     
-    Autenticar usuário
+    Salvar token gerado
+
     
+    Cadastrar produto
+
+    ${response_produto}=    Enviar requisição POST para /produtos com token
+    
+    Extrair ID do produto   ${response_produto}
+
+    
+    Criar carrinho 
+
+    Enviar requisição POST para /carrinhos    201
+
+    Extrair ID do carrinho    ${response}
+
+
     Enviar requisição DELETE para /carrinhos/concluir-compra
     
     Validar status code "200"
     
-    Verificar mensagem de sucesso
+    Verificar mensagem de sucesso,registro excluido
 
 CT-033: Finalização de compra e validação de esvaziamento
     
-    Criar Sessao
     
-    Finalizar compra de carrinho existente
+    Criar dados validos
+
+    Enviar requisição POST para /usuarios
+
+    Gerar credenciais
+
+    Enviar requisição POST para /login
     
-    Enviar GET para /carrinhos/concluir-compra
+    Salvar token gerado
+
+    
+    Cadastrar produto
+
+    ${response_produto}=    Enviar requisição POST para /produtos com token
+    
+    Extrair ID do produto   ${response_produto}
+
+    
+    Criar carrinho 
+
+    Enviar requisição POST para /carrinhos    201
+
+    Extrair ID do carrinho    ${response}
+
+
+    Enviar requisição DELETE para /carrinhos/concluir-compra
+
+    
+    Enviar GET para /carrinhos/id    400      
+
+    Validar status code "400"
     
     Validar que carrinho não existe mais
 
 CT-034: Cancelamento de compra com carrinho válido
     
-    Criar Sessao
     
-    Criar carrinho com produtos
+    Criar dados validos
+
+    Enviar requisição POST para /usuarios
+
+    Gerar credenciais
+
+    Enviar requisição POST para /login
     
-    Autenticar usuário
+    Salvar token gerado
+
     
-    Enviar requisição DELETE para /carrinhos/cancelar-compra
+    Cadastrar produto
+
+    ${response_produto}=    Enviar requisição POST para /produtos com token
+    
+    Extrair ID do produto   ${response_produto}
+
+    
+    Criar carrinho 
+
+    Enviar requisição POST para /carrinhos    201
+
+    Extrair ID do carrinho    ${response}
+
+    
+    Enviar requisição DELETE para /carrinhos/cancelar-compra   
     
     Validar status code "200"
     
