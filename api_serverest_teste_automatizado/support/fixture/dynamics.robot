@@ -16,7 +16,11 @@ Criar dados dinamicos para produto
     ${preco}=    FakerLibrary.Random Int
     ${descricao}=    FakerLibrary.Sentence
     ${quantidade}=    FakerLibrary.Random Int
+    ${quantidade_carrinho}=    FakerLibrary.Random Int     min=1    max=10
     Set Suite Variable    ${nomeproduto}
     Set Suite Variable    ${preco}
     Set Suite Variable    ${descricao}
     Set Suite Variable    ${quantidade}
+    Set Suite Variable    ${quantidade_carrinho}
+
+    
