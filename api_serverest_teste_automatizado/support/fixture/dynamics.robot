@@ -10,3 +10,13 @@ Criar dados dinamicos para usuario
     Set Suite Variable    ${nome}
     Set Suite Variable    ${email}
     Set Suite Variable    ${senha}
+
+Criar dados dinamicos para produto 
+    ${nomeproduto}=    FakerLibrary.Word
+    ${preco}=    FakerLibrary.Random Int
+    ${descricao}=    FakerLibrary.Sentence
+    ${quantidade}=    FakerLibrary.Random Int
+    Set Suite Variable    ${nomeproduto}
+    Set Suite Variable    ${preco}
+    Set Suite Variable    ${descricao}
+    Set Suite Variable    ${quantidade}

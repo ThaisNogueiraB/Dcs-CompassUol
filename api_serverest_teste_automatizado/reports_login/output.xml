@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-05T11:05:34.212992" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Tests" source="c:\Dcs-CompassUol\api_serverest_teste_automatizado\tests\login_tests.robot">
+<kw name="Criar Sessao" owner="base" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:05:34.923098" level="INFO">Creating Session using : alias=serveRest, url=https://compassuol.serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>serveRest</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-05T11:05:34.922937" elapsed="0.000367"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:34.922194" elapsed="0.001189"/>
+</kw>
+<test id="s1-t1" name="CT-013:Login com credenciais válidas" line="9">
+<kw name="Criar dados validos" owner="usuarios_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:34.924811" level="INFO">${nome} = Amanda Campos</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T11:05:34.924430" elapsed="0.000410"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:34.925222" level="INFO">${email} = freemanstephanie@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T11:05:34.924924" elapsed="0.000318"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:34.925424" level="INFO">${senha} = X43420038</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T11:05:34.925317" elapsed="0.000125"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:34.925690" level="INFO">${nome} = Amanda Campos</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:34.925531" elapsed="0.000187"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:34.925896" level="INFO">${email} = freemanstephanie@example.net</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:34.925793" elapsed="0.000127"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:34.926081" level="INFO">${senha} = X43420038</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:34.925986" elapsed="0.000119"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:34.924265" elapsed="0.001878"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T11:05:34.926460" level="INFO">${payload} = {'nome': 'Amanda Campos', 'email': 'freemanstephanie@example.net', 'password': 'X43420038', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<arg>administrador=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T11:05:34.926211" elapsed="0.000268"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:34.926664" level="INFO">${payload} = {'nome': 'Amanda Campos', 'email': 'freemanstephanie@example.net', 'password': 'X43420038', 'administrador': 'true'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:34.926558" elapsed="0.000132"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T11:05:34.926724" elapsed="0.000043"/>
+</return>
+<status status="PASS" start="2025-06-05T11:05:34.924025" elapsed="0.002809"/>
+</kw>
+<kw name="Enviar requisição POST para /usuarios" owner="usuarios_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:05:35.310398" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '116', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Amanda Campos", "email": "freemanstephanie@example.net", "password": "X43420038", "administrador": "true"}' 
+ </msg>
+<msg time="2025-06-05T11:05:35.310539" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '42f57ea8f3ade3a286b7e62e98f3be19;o=1', 'date': 'Thu, 05 Jun 2025 14:05:34 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "am5mR1RUxErUtSB3"
+} 
+ </msg>
+<msg time="2025-06-05T11:05:35.310624" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T11:05:35.310898" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T11:05:34.927379" elapsed="0.383564"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.311365" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.311174" elapsed="0.000223"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:34.927115" elapsed="0.384335"/>
+</kw>
+<kw name="Gerar credenciais" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.312323" level="INFO">${nome} = Teresa Alexander</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T11:05:35.312035" elapsed="0.000310"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.312702" level="INFO">${email} = lisarojas@example.org</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T11:05:35.312425" elapsed="0.000299"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.312914" level="INFO">${senha} = K67074974</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T11:05:35.312800" elapsed="0.000133"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.313133" level="INFO">${nome} = Teresa Alexander</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.313014" elapsed="0.000147"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.313346" level="INFO">${email} = lisarojas@example.org</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.313238" elapsed="0.000134"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.313842" level="INFO">${senha} = K67074974</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.313684" elapsed="0.000197"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.311883" elapsed="0.002044"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.314753" level="INFO">${payload} = {'email': 'freemanstephanie@example.net', 'password': 'X43420038'}</msg>
+<var>${payload}</var>
+<arg>email=${payload['email']}</arg>
+<arg>password=${payload['password']}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.314007" elapsed="0.000770"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.315025" level="INFO">${payload} = {'email': 'freemanstephanie@example.net', 'password': 'X43420038'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.314880" elapsed="0.000176"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.311669" elapsed="0.003430"/>
+</kw>
+<kw name="Enviar requisição POST para /login" owner="login_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:05:35.489074" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '66', 'Content-Type': 'application/json'} 
+ body=b'{"email": "freemanstephanie@example.net", "password": "X43420038"}' 
+ </msg>
+<msg time="2025-06-05T11:05:35.489149" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '256bbfccfdf5011e86b7e62e98f3be82', 'date': 'Thu, 05 Jun 2025 14:05:34 GMT', 'server': 'Google Frontend', 'Content-Length': '291'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyZWVtYW5zdGVwaGFuaWVAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6Ilg0MzQyMDAzOCIsImlhdCI6MTc0OTEzMjMzNCwiZXhwIjoxNzQ5MTMyOTM0fQ.wxZ7TC9s4-NI6LiAjRj8jGpEOTW1BWSfZLsIjPYg_2M"
+} 
+ </msg>
+<msg time="2025-06-05T11:05:35.489209" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T11:05:35.489419" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.315556" elapsed="0.173909"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.489942" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.489713" elapsed="0.000281"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-06-05T11:05:35.490053" elapsed="0.000087"/>
+</return>
+<status status="PASS" start="2025-06-05T11:05:35.315336" elapsed="0.174890"/>
+</kw>
+<kw name="Validar status code &quot;200&quot;" owner="base" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.490967" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${statuscode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.490636" elapsed="0.000383"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.491352" level="INFO">Status recebido: 200</msg>
+<arg>Status recebido: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.491101" elapsed="0.000280"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.490438" elapsed="0.000978"/>
+</kw>
+<kw name="Verificar presença do token JWT na resposta" owner="login_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.492324" level="INFO">${json} = {
+  "message": "Login realizado com sucesso",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyZWVtYW5zdGVwaGFuaWVAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6Ilg0MzQyMDAzOCIsImlhdC...</msg>
+<var>${json}</var>
+<arg>json.dumps(${response.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.491723" elapsed="0.000622"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.492505" level="INFO">JSON da resposta:
+{
+  "message": "Login realizado com sucesso",
+  "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyZWVtYW5zdGVwaGFuaWVAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6Ilg0MzQyMDAzOCIsImlhdCI6MTc0OTEzMjMzNCwiZXhwIjoxNzQ5MTMyOTM0fQ.wxZ7TC9s4-NI6LiAjRj8jGpEOTW1BWSfZLsIjPYg_2M"
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.492420" elapsed="0.000122"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T11:05:35.492895" level="INFO">${message} = Login realizado com sucesso</msg>
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.492612" elapsed="0.000300"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Login realizado com sucesso</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.492985" elapsed="0.000096"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T11:05:35.493437" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyZWVtYW5zdGVwaGFuaWVAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6Ilg0MzQyMDAzOCIsImlhdCI6MTc0OTEzMjMzNCwiZXhwIjoxNzQ5MTMyOTM0fQ.wxZ7TC9s4-NI6LiAjRj8jGpEO...</msg>
+<var>${token}</var>
+<arg>${response.json()}</arg>
+<arg>authorization</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.493149" elapsed="0.000307"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${token}</arg>
+<arg>Bearer</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.493526" elapsed="0.000081"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.491583" elapsed="0.002059"/>
+</kw>
+<tag>Postlogin</tag>
+<status status="PASS" start="2025-06-05T11:05:34.923478" elapsed="0.570378"/>
+</test>
+<test id="s1-t2" name="CT-014:Login com e-mail não cadastrado" line="25">
+<kw name="Gerar credenciais com email envalido" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.495888" level="INFO">${nome} = Heather Robinson</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T11:05:35.495642" elapsed="0.000267"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.496211" level="INFO">${email} = blacklori@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T11:05:35.495981" elapsed="0.000248"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.496385" level="INFO">${senha} = 148266064</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T11:05:35.496295" elapsed="0.000107"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.496588" level="INFO">${nome} = Heather Robinson</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.496478" elapsed="0.000135"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.496780" level="INFO">${email} = blacklori@example.net</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.496683" elapsed="0.000121"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.496972" level="INFO">${senha} = 148266064</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.496870" elapsed="0.000127"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.495468" elapsed="0.001563"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.497539" level="INFO">${payload} = {'email': 'naoexiste@teste.com', 'password': '148266064'}</msg>
+<var>${payload}</var>
+<arg>email=naoexiste@teste.com</arg>
+<arg>password=${senha}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.497380" elapsed="0.000178"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.497886" level="INFO">${payload} = {'email': 'naoexiste@teste.com', 'password': '148266064'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.497635" elapsed="0.000278"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.494799" elapsed="0.003150"/>
+</kw>
+<kw name="Enviar requisição POST para /login" owner="login_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:05:35.666697" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"email": "naoexiste@teste.com", "password": "148266064"}' 
+ </msg>
+<msg time="2025-06-05T11:05:35.666771" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'd579e16044074fe386b7e62e98f3b0f7', 'date': 'Thu, 05 Jun 2025 14:05:34 GMT', 'server': 'Google Frontend', 'Content-Length': '48'} 
+ body={
+    "message": "Email e/ou senha inválidos"
+} 
+ </msg>
+<msg time="2025-06-05T11:05:35.666829" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T11:05:35.667118" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.498544" elapsed="0.168620"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.667637" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.667407" elapsed="0.000279"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-06-05T11:05:35.667743" elapsed="0.000046"/>
+</return>
+<arg>401</arg>
+<status status="PASS" start="2025-06-05T11:05:35.498247" elapsed="0.169618"/>
+</kw>
+<kw name="Validar status code &quot;401&quot;" owner="base" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.668586" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${statuscode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.668254" elapsed="0.000374"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.668952" level="INFO">Status recebido: 401</msg>
+<arg>Status recebido: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.668704" elapsed="0.000276"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.668069" elapsed="0.000947"/>
+</kw>
+<kw name="Verificar mensagem de erro indicando credenciais inválidas" owner="login_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.669919" level="INFO">${json} = {
+  "message": "Email e/ou senha inv\u00e1lidos"
+}</msg>
+<var>${json}</var>
+<arg>json.dumps(${response.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.669332" elapsed="0.000608"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.670097" level="INFO">JSON da resposta:
+{
+  "message": "Email e/ou senha inv\u00e1lidos"
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.670015" elapsed="0.000109"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T11:05:35.670578" level="INFO">${message} = Email e/ou senha inválidos</msg>
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.670193" elapsed="0.000411"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Email e/ou senha inválidos</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.670722" elapsed="0.000126"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.669183" elapsed="0.001707"/>
+</kw>
+<tag>Postlogininvalido</tag>
+<status status="PASS" start="2025-06-05T11:05:35.494238" elapsed="0.176853"/>
+</test>
+<test id="s1-t3" name="CT-015:Login com senha incorreta" line="37">
+<kw name="Gerar credenciais com senha invalidas" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.672899" level="INFO">${nome} = Haley Robertson</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T11:05:35.672613" elapsed="0.000306"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.673179" level="INFO">${email} = pamela74@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T11:05:35.672993" elapsed="0.000203"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.673353" level="INFO">${senha} = L73015492</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T11:05:35.673260" elapsed="0.000110"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.673569" level="INFO">${nome} = Haley Robertson</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.673454" elapsed="0.000140"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.673772" level="INFO">${email} = pamela74@example.net</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.673667" elapsed="0.000129"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.673957" level="INFO">${senha} = L73015492</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.673863" elapsed="0.000116"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.672408" elapsed="0.001606"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.674229" level="INFO">${payload} = {'email': 'pamela74@example.net', 'password': 'senhaincorreta'}</msg>
+<var>${payload}</var>
+<arg>email=${email}</arg>
+<arg>password=senhaincorreta</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.674077" elapsed="0.000169"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.674416" level="INFO">${payload} = {'email': 'pamela74@example.net', 'password': 'senhaincorreta'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.674319" elapsed="0.000121"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.672094" elapsed="0.002379"/>
+</kw>
+<kw name="Enviar requisição POST para /login" owner="login_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:05:35.860842" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '63', 'Content-Type': 'application/json'} 
+ body=b'{"email": "pamela74@example.net", "password": "senhaincorreta"}' 
+ </msg>
+<msg time="2025-06-05T11:05:35.860942" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '30736d330163e8a086b7e62e98f3b412', 'date': 'Thu, 05 Jun 2025 14:05:35 GMT', 'server': 'Google Frontend', 'Content-Length': '48'} 
+ body={
+    "message": "Email e/ou senha inválidos"
+} 
+ </msg>
+<msg time="2025-06-05T11:05:35.861020" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T11:05:35.861335" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.674859" elapsed="0.186519"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.861813" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.861595" elapsed="0.000274"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-06-05T11:05:35.861923" elapsed="0.000046"/>
+</return>
+<arg>401</arg>
+<status status="PASS" start="2025-06-05T11:05:35.674676" elapsed="0.187405"/>
+</kw>
+<kw name="Validar status code &quot;401&quot;" owner="base" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.863183" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${statuscode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.862668" elapsed="0.000580"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.863633" level="INFO">Status recebido: 401</msg>
+<arg>Status recebido: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.863364" elapsed="0.000298"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.862373" elapsed="0.001326"/>
+</kw>
+<kw name="Verificar mensagem de erro indicando credenciais inválidas" owner="login_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.864651" level="INFO">${json} = {
+  "message": "Email e/ou senha inv\u00e1lidos"
+}</msg>
+<var>${json}</var>
+<arg>json.dumps(${response.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.864035" elapsed="0.000637"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.864833" level="INFO">JSON da resposta:
+{
+  "message": "Email e/ou senha inv\u00e1lidos"
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.864748" elapsed="0.000113"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T11:05:35.865230" level="INFO">${message} = Email e/ou senha inválidos</msg>
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.864938" elapsed="0.000310"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Email e/ou senha inválidos</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.865322" elapsed="0.000097"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.863881" elapsed="0.001576"/>
+</kw>
+<tag>Postloginsenhainvalida</tag>
+<status status="PASS" start="2025-06-05T11:05:35.671640" elapsed="0.194030"/>
+</test>
+<test id="s1-t4" name="CT-016:Expiração de token após 10 minutos" line="49">
+<kw name="Criar dados validos" owner="usuarios_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.867313" level="INFO">${nome} = Maurice Sandoval</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T11:05:35.867041" elapsed="0.000292"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.867606" level="INFO">${email} = urivera@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T11:05:35.867403" elapsed="0.000222"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:35.867782" level="INFO">${senha} = E30017692</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T11:05:35.867690" elapsed="0.000109"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.867995" level="INFO">${nome} = Maurice Sandoval</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.867882" elapsed="0.000137"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.868196" level="INFO">${email} = urivera@example.net</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.868099" elapsed="0.000119"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.868374" level="INFO">${senha} = E30017692</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.868283" elapsed="0.000112"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.866870" elapsed="0.001558"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.868666" level="INFO">${payload} = {'nome': 'Maurice Sandoval', 'email': 'urivera@example.net', 'password': 'E30017692', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<arg>administrador=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.868490" elapsed="0.000192"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:35.868850" level="INFO">${payload} = {'nome': 'Maurice Sandoval', 'email': 'urivera@example.net', 'password': 'E30017692', 'administrador': 'true'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.868755" elapsed="0.000119"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T11:05:35.868904" elapsed="0.000030"/>
+</return>
+<status status="PASS" start="2025-06-05T11:05:35.866570" elapsed="0.002424"/>
+</kw>
+<kw name="Enviar requisição POST para /usuarios" owner="usuarios_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:05:36.061929" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '110', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Maurice Sandoval", "email": "urivera@example.net", "password": "E30017692", "administrador": "true"}' 
+ </msg>
+<msg time="2025-06-05T11:05:36.062031" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '16dac93aedf1014686b7e62e98f3b1ec', 'date': 'Thu, 05 Jun 2025 14:05:35 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "IRfgbqPUjR6vzJtN"
+} 
+ </msg>
+<msg time="2025-06-05T11:05:36.062104" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T11:05:36.062379" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T11:05:35.869443" elapsed="0.192986"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.062865" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.062642" elapsed="0.000273"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:35.869260" elapsed="0.193722"/>
+</kw>
+<kw name="Gerar credenciais" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:36.064177" level="INFO">${nome} = Alexander Hutchinson</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T11:05:36.063893" elapsed="0.000307"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:36.064515" level="INFO">${email} = jamesmoss@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T11:05:36.064273" elapsed="0.000259"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T11:05:36.064697" level="INFO">${senha} = 175607598</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T11:05:36.064597" elapsed="0.000116"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.064924" level="INFO">${nome} = Alexander Hutchinson</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.064798" elapsed="0.000153"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.065108" level="INFO">${email} = jamesmoss@example.net</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.065016" elapsed="0.000114"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.065297" level="INFO">${senha} = 175607598</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.065201" elapsed="0.000119"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:36.063660" elapsed="0.001696"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.065940" level="INFO">${payload} = {'email': 'urivera@example.net', 'password': 'E30017692'}</msg>
+<var>${payload}</var>
+<arg>email=${payload['email']}</arg>
+<arg>password=${payload['password']}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.065431" elapsed="0.000528"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.066191" level="INFO">${payload} = {'email': 'urivera@example.net', 'password': 'E30017692'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.066089" elapsed="0.000127"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:05:36.063272" elapsed="0.002976"/>
+</kw>
+<kw name="Enviar requisição POST para /login" owner="login_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:05:36.250582" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"email": "urivera@example.net", "password": "E30017692"}' 
+ </msg>
+<msg time="2025-06-05T11:05:36.250652" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '18c01efc5459812c86b7e62e98f3b567', 'date': 'Thu, 05 Jun 2025 14:05:35 GMT', 'server': 'Google Frontend', 'Content-Length': '279'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVyaXZlcmFAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IkUzMDAxNzY5MiIsImlhdCI6MTc0OTEzMjMzNSwiZXhwIjoxNzQ5MTMyOTM1fQ.al119E2wKq-QyKDD3xV3rkVn3l2o1FGz_KpEdAZkcp4"
+} 
+ </msg>
+<msg time="2025-06-05T11:05:36.250705" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T11:05:36.250999" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.066621" elapsed="0.184421"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.251484" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.251260" elapsed="0.000273"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-06-05T11:05:36.251593" elapsed="0.000046"/>
+</return>
+<status status="PASS" start="2025-06-05T11:05:36.066454" elapsed="0.185298"/>
+</kw>
+<kw name="Salvar token gerado" owner="base">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T11:05:36.252494" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVyaXZlcmFAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IkUzMDAxNzY5MiIsImlhdCI6MTc0OTEzMjMzNSwiZXhwIjoxNzQ5MTMyOTM1fQ.al119E2wKq-QyKDD3xV3rkVn3l2o1FGz_KpEd...</msg>
+<var>${token}</var>
+<arg>${response.json()}</arg>
+<arg>authorization</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.252149" elapsed="0.000366"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.252682" level="INFO">Token gerado: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVyaXZlcmFAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IkUzMDAxNzY5MiIsImlhdCI6MTc0OTEzMjMzNSwiZXhwIjoxNzQ5MTMyOTM1fQ.al119E2wKq-QyKDD3xV3rkVn3l2o1FGz_KpEdAZkcp4</msg>
+<arg>Token gerado: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.252591" elapsed="0.000120"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:05:36.252883" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVyaXZlcmFAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IkUzMDAxNzY5MiIsImlhdCI6MTc0OTEzMjMzNSwiZXhwIjoxNzQ5MTMyOTM1fQ.al119E2wKq-QyKDD3xV3rkVn3l2o1FGz_KpEd...</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.252784" elapsed="0.000124"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="PASS" start="2025-06-05T11:05:36.252937" elapsed="0.000022"/>
+</return>
+<status status="PASS" start="2025-06-05T11:05:36.251979" elapsed="0.001037"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-05T11:15:36.253541" level="INFO">Slept 10 minutes.</msg>
+<arg>600s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-05T11:05:36.253149" elapsed="600.000539"/>
+</kw>
+<kw name="Acessar um endpoint protegido com o token expirado" owner="login_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T11:15:36.254524" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVyaXZlcmFAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IkUzMDAxNzY5MiIsImlhdCI6MTc0OTEzMjMzNSwiZXhwIjoxNzQ5MTMyOTM1fQ.al119E2wKq-QyKDD3x...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.254338" elapsed="0.000210"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T11:15:36.632329" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVyaXZlcmFAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IkUzMDAxNzY5MiIsImlhdCI6MTc0OTEzMjMzNSwiZXhwIjoxNzQ5MTMyOTM1fQ.al119E2wKq-QyKDD3xV3rkVn3l2o1FGz_KpEdAZkcp4', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-05T11:15:36.632446" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
+ status=401, reason=Unauthorized 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '1b0637f6a15e248b51ddb9658d90f240;o=1', 'date': 'Thu, 05 Jun 2025 14:15:35 GMT', 'server': 'Google Frontend', 'Content-Length': '103'} 
+ body={
+    "message": "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+} 
+ </msg>
+<msg time="2025-06-05T11:15:36.632529" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T11:15:36.632904" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=401</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.254636" elapsed="0.378312"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T11:15:36.633552" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.633313" elapsed="0.000291"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:15:36.254076" elapsed="0.379602"/>
+</kw>
+<kw name="Validar status code &quot;401&quot;" owner="base" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T11:15:36.634710" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${statuscode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.634222" elapsed="0.000539"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:15:36.635205" level="INFO">Status recebido: 401</msg>
+<arg>Status recebido: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.634856" elapsed="0.000384"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:15:36.633951" elapsed="0.001341"/>
+</kw>
+<kw name="Validar mensagem de erro informando que o token expirou" owner="login_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T11:15:36.637042" level="INFO">${json} = {
+  "message": "Token de acesso ausente, inv\u00e1lido, expirado ou usu\u00e1rio do token n\u00e3o existe mais"
+}</msg>
+<var>${json}</var>
+<arg>json.dumps(${response.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.635925" elapsed="0.001157"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T11:15:36.637383" level="INFO">JSON da resposta:
+{
+  "message": "Token de acesso ausente, inv\u00e1lido, expirado ou usu\u00e1rio do token n\u00e3o existe mais"
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.637261" elapsed="0.000158"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T11:15:36.637853" level="INFO">${message} = Token de acesso ausente, inválido, expirado ou usuário do token não existe mais</msg>
+<var>${message}</var>
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.637502" elapsed="0.000374"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Token de acesso ausente, inválido, expirado ou usuário do token não existe mais</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T11:15:36.637957" elapsed="0.000141"/>
+</kw>
+<status status="PASS" start="2025-06-05T11:15:36.635652" elapsed="0.002495"/>
+</kw>
+<tag>tokenexpirado</tag>
+<status status="PASS" start="2025-06-05T11:05:35.866151" elapsed="600.772237"/>
+</test>
+<doc>Arquivo de testes para Endpoint/login</doc>
+<status status="PASS" start="2025-06-05T11:05:34.214173" elapsed="602.424888"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Postlogin</stat>
+<stat pass="1" fail="0" skip="0">Postlogininvalido</stat>
+<stat pass="1" fail="0" skip="0">Postloginsenhainvalida</stat>
+<stat pass="1" fail="0" skip="0">tokenexpirado</stat>
+</tag>
+<suite>
+<stat name="Login Tests" id="s1" pass="4" fail="0" skip="0">Login Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
