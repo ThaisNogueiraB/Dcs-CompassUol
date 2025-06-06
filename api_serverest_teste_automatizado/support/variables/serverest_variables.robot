@@ -1,3 +1,3 @@
 *** Variables ***
-${BASE_URL}    https://compassuol.serverest.dev/
+${BASE_URL}    172.31.81.15/
 ${TOKEN_EXPIRY_WAIT}    600s
