@@ -16,6 +16,7 @@ CT-013:Login com credenciais válidas
 
     Gerar credenciais
 
+
     Enviar requisição POST para /login
 
     Validar status code "200"
@@ -55,6 +56,7 @@ CT-016:Expiração de token após 10 minutos
     Enviar requisição POST para /usuarios
 
     Gerar credenciais
+    
 
     Enviar requisição POST para /login 
     
