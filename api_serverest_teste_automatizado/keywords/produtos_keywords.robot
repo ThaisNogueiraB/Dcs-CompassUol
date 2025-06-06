@@ -1,9 +1,7 @@
 *** Settings ***
-Resource    ../support/fixture/dynamics.robot
 Documentation    Keywords e variaveis para  testes do endpoint/produtos da serverest
 Resource    ../support/base.robot
-Resource   ../support/fixture/dynamics.robot
-Resource   ../support/variables/serverest_variables.robot
+
 
 
 *** Variables ***

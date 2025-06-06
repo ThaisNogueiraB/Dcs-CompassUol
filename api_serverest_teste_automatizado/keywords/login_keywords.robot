@@ -1,8 +1,7 @@
 *** Settings ***
 Documentation    Keywords e variaveis para  testes do endpoint/login da serverest
 Resource    ../support/base.robot
-Resource   ../support/fixture/dynamics.robot
-Resource   ../support/variables/serverest_variables.robot
+
 
 
 *** Variables ***
@@ -14,12 +13,12 @@ Gerar credenciais
     Set Suite Variable    ${payload}
 
 
-Gerar credenciais com email envalido
+Gerar credenciais com email invalido
     Criar dados dinamicos para usuario 
     ${payload}    Create Dictionary    email=naoexiste@teste.com    password=${senha}
     Set Suite Variable    ${payload}
 
-Gerar credenciais com senha invalidas
+Gerar credenciais com senha invalida
     Criar dados dinamicos para usuario 
     ${payload}    Create Dictionary    email=${email}  password=senhaincorreta
     Set Suite Variable    ${payload}

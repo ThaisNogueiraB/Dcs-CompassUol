@@ -38,6 +38,7 @@ CT-010: Listagem de usuários válida
     Criar dados validos
 
     Enviar requisição POST para /usuarios
+
     
     Enviar requisição GET para /usuarios
     

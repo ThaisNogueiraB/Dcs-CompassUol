@@ -18,9 +18,11 @@ CT-017:Cadastro de produto válido
 
     Gerar credenciais
 
+
     Enviar requisição POST para /login
     
     Salvar token gerado
+
 
     Cadastrar produto
     
@@ -53,6 +55,7 @@ CT-023 - - Listagem de produtos válida
     Enviar requisição POST para /usuarios
 
     Gerar credenciais
+
     
     Enviar requisição GET para /produtos com token
     
@@ -68,15 +71,18 @@ CT-025 - - Exclusão de produto válido
 
     Gerar credenciais
 
+
     Enviar requisição POST para /login
     
     Salvar token gerado
+
 
     Cadastrar produto
     
     ${response_produto}=    Enviar requisição POST para /produtos com token
 
-    Extrair ID do produto   ${response_produto} 
+    Extrair ID do produto   ${response_produto}
+
 
     Enviar requisição DELETE para /produtos/id com token    ${idproduto} 
     
@@ -110,6 +116,7 @@ CT-026 - - Exclusão de produto vinculado a carrinho
     Enviar requisição POST para /carrinhos
 
     Extrair ID do carrinho    ${response}
+    
     
     Enviar requisição DELETE para /produtos/id com token    ${idproduto} 
     

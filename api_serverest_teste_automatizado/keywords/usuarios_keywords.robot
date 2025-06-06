@@ -2,8 +2,6 @@
 *** Settings ***
 Documentation    Keywords e variaveis para  testes do endpoint/usuarios da serverest
 Resource    ../support/base.robot
-Resource   ../support/fixture/dynamics.robot
-Resource   ../support/variables/serverest_variables.robot
 
 
 

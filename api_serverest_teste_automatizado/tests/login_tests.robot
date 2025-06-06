@@ -26,7 +26,7 @@ CT-014:Login com e-mail não cadastrado
     
     [Tags]    Postlogininvalido
 
-    Gerar credenciais com email envalido
+    Gerar credenciais com email invalido
 
     Enviar requisição POST para /login    401
 
@@ -38,7 +38,7 @@ CT-015:Login com senha incorreta
 
     [Tags]    Postloginsenhainvalida
     
-    Gerar credenciais com senha invalidas
+    Gerar credenciais com senha invalida
     
     Enviar requisição POST para /login    401
     
@@ -60,7 +60,7 @@ CT-016:Expiração de token após 10 minutos
     
     Salvar token gerado
     
-    Sleep    600s    #(simulando tempo real)
+    Sleep    ${TOKEN_EXPIRY_WAIT}    #(simulando tempo real)
         
     Acessar um endpoint protegido com o token expirado      
     
