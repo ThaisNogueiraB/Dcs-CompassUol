@@ -90,11 +90,36 @@ Este repositório contém a documentação e os artefatos gerados durante o dese
 
 #### S11- Avaliação do uso do Amazon Q na melhoria do código.pdf
 #### S11-Guia de Configuração EC2 + Serverest.df
-#### S11- Plano de teste Serverest Atualizado.pdf
-#### S11 -Descrição das Alterações Realizadas no Plano de teste.pdf
+#### S11- Plano de teste Serverest Alterado.pdf
+#### S11 -Descrição das Alterações Realizadas no Plano de teste alterado.pdf
 
-#### API-Serverest- teste manual
+### API-Serverest- teste manual
 - `API SeverRest -Challenge.postman_collection.json`
 - `ServeRest Environment.postman_environment.json`
 - `Test Cycles QAlity.pdf`
 -  `Test_Execution_Report_03.06.2025 (1).xlsx`
+
+### api_serverest_teste_automatizado
+
+#### keywords/
+- `carrinho_keywords.robot`
+- `login_keywords.robot`
+- `produtos_keywords.robot`
+- `usuarios_keywords.robot`
+
+#### reports/ 
+- `reports_carrinho/`
+- `reports_completo/`
+- `reports_login/`
+- `reports_usuario/`
+
+#### support/ 
+
+#### tests/ 
+- `carrinho_tests.robot`
+- `login_tests.robot`
+- `produtos_tests.robot`
+- `usuarios_tests.robot`
+
+### README.md
+
