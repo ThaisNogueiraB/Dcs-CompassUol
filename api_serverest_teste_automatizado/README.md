@@ -2,6 +2,35 @@
 
 Este projeto contem suites de testes automatizados para a API [ServeRest](https://compassuol.serverest.dev/) utilizando o **Robot Framework**. Os casos de teste exercitam os principais endpoints da aplicacao, verificando funcionalidades de usuarios, login, produtos e carrinho.
 
+# Estrutura de Pastas - Projeto API ServeRest (Robot Framework)
+
+```plaintext
+api_serverest_teste_automatizado/
+├── keywords/                     
+│   ├── carrinho_keywords.robot
+│   ├── login_keywords.robot
+│   ├── produtos_keywords.robot
+│   └── usuarios_keywords.robot
+│
+├── reports/                      
+│   ├── reports_carrinho/
+│   ├── reports_completo/
+│   ├── reports_login/
+│   ├── reports_produtos/
+│   └── reports_usuario/
+│
+├── support/                     
+│
+├── tests/                        
+│   ├── carrinho_tests.robot
+│   ├── login_tests.robot
+│   ├── produtos_tests.robot
+│   └── usuarios_tests.robot
+│
+└── README.md                    
+```
+
+
 ## Estrutura do Projeto
 
 - `tests/` - arquivos com os casos de teste.
