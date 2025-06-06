@@ -1,0 +1,3869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-05T18:10:58.009756" rpa="false" schemaversion="5">
+<suite id="s1" name="Produtos Tests" source="c:\Dcs-CompassUol\api_serverest_teste_automatizado\tests\produtos_tests.robot">
+<kw name="Criar Sessao" owner="base" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:10:58.784523" level="INFO">Creating Session using : alias=serveRest, url=https://compassuol.serverest.dev/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>serveRest</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-05T18:10:58.784202" elapsed="0.000601"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:58.782453" elapsed="0.002478"/>
+</kw>
+<test id="s1-t1" name="CT-017:Cadastro de produto válido" line="11">
+<kw name="Criar dados validos" owner="usuarios_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:58.786874" level="INFO">${nome} = Nicholas Parks</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:10:58.786403" elapsed="0.000497"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:58.787337" level="INFO">${email} = mcclainsteven@example.org</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:10:58.786992" elapsed="0.000365"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:58.787542" level="INFO">${senha} = H82258280</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:10:58.787432" elapsed="0.000128"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:58.787800" level="INFO">${nome} = Nicholas Parks</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:58.787656" elapsed="0.000172"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:58.788014" level="INFO">${email} = mcclainsteven@example.org</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:58.787906" elapsed="0.000139"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:58.788218" level="INFO">${senha} = H82258280</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:58.788118" elapsed="0.000125"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:58.786200" elapsed="0.002084"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:58.788613" level="INFO">${payload} = {'nome': 'Nicholas Parks', 'email': 'mcclainsteven@example.org', 'password': 'H82258280', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<arg>administrador=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:58.788351" elapsed="0.000280"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:58.788950" level="INFO">${payload} = {'nome': 'Nicholas Parks', 'email': 'mcclainsteven@example.org', 'password': 'H82258280', 'administrador': 'true'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:58.788784" elapsed="0.000196"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:10:58.789158" elapsed="0.000056"/>
+</return>
+<status status="PASS" start="2025-06-05T18:10:58.785694" elapsed="0.003730"/>
+</kw>
+<kw name="Enviar requisição POST para /usuarios" owner="usuarios_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:10:59.155226" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '114', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Nicholas Parks", "email": "mcclainsteven@example.org", "password": "H82258280", "administrador": "true"}' 
+ </msg>
+<msg time="2025-06-05T18:10:59.155351" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '1bf635d586643e1fa1d9e1ec9ba83e08;o=1', 'date': 'Thu, 05 Jun 2025 21:10:58 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "Gi1Z3qZrQ0IVRUYt"
+} 
+ </msg>
+<msg time="2025-06-05T18:10:59.155424" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:10:59.155641" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:10:58.790014" elapsed="0.365674"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.156135" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.155942" elapsed="0.000240"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:58.789724" elapsed="0.366523"/>
+</kw>
+<kw name="Gerar credenciais" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.157248" level="INFO">${nome} = Joseph Ramos</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:10:59.156954" elapsed="0.000323"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.157580" level="INFO">${email} = hlewis@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:10:59.157358" elapsed="0.000241"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.157776" level="INFO">${senha} = U21222400</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:10:59.157674" elapsed="0.000119"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.158061" level="INFO">${nome} = Joseph Ramos</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.157892" elapsed="0.000208"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.158359" level="INFO">${email} = hlewis@example.com</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.158209" elapsed="0.000186"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.158827" level="INFO">${senha} = U21222400</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.158681" elapsed="0.000187"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.156780" elapsed="0.002160"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.159847" level="INFO">${payload} = {'email': 'mcclainsteven@example.org', 'password': 'H82258280'}</msg>
+<var>${payload}</var>
+<arg>email=${payload['email']}</arg>
+<arg>password=${payload['password']}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.159045" elapsed="0.000827"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.160149" level="INFO">${payload} = {'email': 'mcclainsteven@example.org', 'password': 'H82258280'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.160000" elapsed="0.000181"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.156531" elapsed="0.003707"/>
+</kw>
+<kw name="Enviar requisição POST para /login" owner="login_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:10:59.340457" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '63', 'Content-Type': 'application/json'} 
+ body=b'{"email": "mcclainsteven@example.org", "password": "H82258280"}' 
+ </msg>
+<msg time="2025-06-05T18:10:59.340565" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '1587b5d66e7ff23aa1d9e1ec9ba8308e', 'date': 'Thu, 05 Jun 2025 21:10:58 GMT', 'server': 'Google Frontend', 'Content-Length': '287'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStVti9CFy8VpsLhAr05z81xHIEFCz2BtqJdU"
+} 
+ </msg>
+<msg time="2025-06-05T18:10:59.340652" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:10:59.340825" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.160796" elapsed="0.180051"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.341184" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.341022" elapsed="0.000191"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-06-05T18:10:59.341251" elapsed="0.000046"/>
+</return>
+<status status="PASS" start="2025-06-05T18:10:59.160520" elapsed="0.180871"/>
+</kw>
+<kw name="Salvar token gerado" owner="base">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:10:59.342146" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStVti9CFy8VpsLhAr05z81...</msg>
+<var>${token}</var>
+<arg>${response.json()}</arg>
+<arg>authorization</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.341785" elapsed="0.000380"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.342332" level="INFO">Token gerado: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStVti9CFy8VpsLhAr05z81xHIEFCz2BtqJdU</msg>
+<arg>Token gerado: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.342245" elapsed="0.000115"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.342546" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStVti9CFy8VpsLhAr05z81...</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.342445" elapsed="0.000127"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="PASS" start="2025-06-05T18:10:59.342602" elapsed="0.000023"/>
+</return>
+<status status="PASS" start="2025-06-05T18:10:59.341602" elapsed="0.001087"/>
+</kw>
+<kw name="Cadastrar produto" owner="produtos_keywords">
+<kw name="Criar dados dinamicos para produto" owner="dynamics">
+<kw name="Word" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.343363" level="INFO">${nomeproduto} = himself</msg>
+<var>${nomeproduto}</var>
+<doc>Generate a word.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.343233" elapsed="0.000151"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.343544" level="INFO">${preco} = 3117</msg>
+<var>${preco}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.343458" elapsed="0.000106"/>
+</kw>
+<kw name="Sentence" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.343745" level="INFO">${descricao} = Trade trial I add.</msg>
+<var>${descricao}</var>
+<doc>Generate a sentence.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.343635" elapsed="0.000127"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.343912" level="INFO">${quantidade} = 3768</msg>
+<var>${quantidade}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.343834" elapsed="0.000093"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.344162" level="INFO">${quantidade_carrinho} = 6</msg>
+<var>${quantidade_carrinho}</var>
+<arg>min=1</arg>
+<arg>max=10</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.343993" elapsed="0.000190"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.344379" level="INFO">${nomeproduto} = himself</msg>
+<arg>${nomeproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.344267" elapsed="0.000138"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.344735" level="INFO">${preco} = 3117</msg>
+<arg>${preco}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.344621" elapsed="0.000142"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.344938" level="INFO">${descricao} = Trade trial I add.</msg>
+<arg>${descricao}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.344838" elapsed="0.000124"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.345127" level="INFO">${quantidade} = 3768</msg>
+<arg>${quantidade}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.345031" elapsed="0.000124"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.345325" level="INFO">${quantidade_carrinho} = 6</msg>
+<arg>${quantidade_carrinho}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.345223" elapsed="0.000125"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.343087" elapsed="0.002296"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.345678" level="INFO">${payload} = {'nome': 'himself', 'preco': 3117, 'descricao': 'Trade trial I add.', 'quantidade': 3768}</msg>
+<var>${payload}</var>
+<arg>nome=${nomeproduto}</arg>
+<arg>preco=${preco}</arg>
+<arg>descricao=${descricao}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.345447" elapsed="0.000249"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.345871" level="INFO">${payload} = {'nome': 'himself', 'preco': 3117, 'descricao': 'Trade trial I add.', 'quantidade': 3768}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.345775" elapsed="0.000119"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:10:59.345925" elapsed="0.000025"/>
+</return>
+<status status="PASS" start="2025-06-05T18:10:59.342874" elapsed="0.003134"/>
+</kw>
+<kw name="Enviar requisição POST para /produtos com token" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.346486" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStV...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.346349" elapsed="0.000155"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:10:59.528876" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStVti9CFy8VpsLhAr05z81xHIEFCz2BtqJdU', 'Content-Length': '89', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "himself", "preco": 3117, "descricao": "Trade trial I add.", "quantidade": 3768}' 
+ </msg>
+<msg time="2025-06-05T18:10:59.528994" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '1d326f513a8d4cb5a1d9e1ec9ba8316f', 'date': 'Thu, 05 Jun 2025 21:10:58 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "0oBDKGTeNByGhzgJ"
+} 
+ </msg>
+<msg time="2025-06-05T18:10:59.529074" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:10:59.529322" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<var>${response_produto}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.346575" elapsed="0.182795"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.529835" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<arg>${response_produto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.529602" elapsed="0.000281"/>
+</kw>
+<msg time="2025-06-05T18:10:59.530004" level="INFO">${response_produto} = None</msg>
+<var>${response_produto}</var>
+<status status="PASS" start="2025-06-05T18:10:59.346200" elapsed="0.183829"/>
+</kw>
+<kw name="Extrair ID do produto" owner="produtos_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.530911" level="INFO">${json} = {'message': 'Cadastro realizado com sucesso', '_id': '0oBDKGTeNByGhzgJ'}</msg>
+<var>${json}</var>
+<arg>${response_produto.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.530498" elapsed="0.000433"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.531114" level="INFO">Retorno do produto:
+{'message': 'Cadastro realizado com sucesso', '_id': '0oBDKGTeNByGhzgJ'}</msg>
+<arg>Retorno do produto:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.531015" elapsed="0.000128"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.531216" elapsed="0.000083"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:10:59.531478" level="INFO">${idproduto} = 0oBDKGTeNByGhzgJ</msg>
+<var>${idproduto}</var>
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.531372" elapsed="0.000124"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.531656" level="INFO">ID do produto: 0oBDKGTeNByGhzgJ</msg>
+<arg>ID do produto: ${idproduto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.531582" elapsed="0.000100"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.531868" level="INFO">${idproduto} = 0oBDKGTeNByGhzgJ</msg>
+<arg>${idproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.531765" elapsed="0.000127"/>
+</kw>
+<msg time="2025-06-05T18:10:59.531999" level="INFO">${idproduto} = None</msg>
+<var>${idproduto}</var>
+<arg>${response_produto}</arg>
+<status status="PASS" start="2025-06-05T18:10:59.530261" elapsed="0.001754"/>
+</kw>
+<kw name="Validar status code 201" owner="produtos_keywords">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.532635" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response_produto.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.532360" elapsed="0.000319"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.532988" level="INFO">Status recebido: 201</msg>
+<arg>Status recebido: ${response_produto.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.532752" elapsed="0.000263"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.532206" elapsed="0.000843"/>
+</kw>
+<kw name="Verificar mensagem de sucesso e presença do ID do produto" owner="produtos_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.534062" level="INFO">${json} = {
+  "message": "Cadastro realizado com sucesso",
+  "_id": "0oBDKGTeNByGhzgJ"
+}</msg>
+<var>${json}</var>
+<arg>json.dumps(${response_produto.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.533472" elapsed="0.000610"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.534258" level="INFO">JSON da resposta:
+{
+  "message": "Cadastro realizado com sucesso",
+  "_id": "0oBDKGTeNByGhzgJ"
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.534161" elapsed="0.000127"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:10:59.534649" level="INFO">${message} = Cadastro realizado com sucesso</msg>
+<var>${message}</var>
+<arg>${response_produto.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.534359" elapsed="0.000307"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Cadastro realizado com sucesso</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.534741" elapsed="0.000093"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:10:59.535178" level="INFO">${idproduto} = 0oBDKGTeNByGhzgJ</msg>
+<var>${idproduto}</var>
+<arg>${response_produto.json()}</arg>
+<arg>_id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.534904" elapsed="0.000290"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.535331" level="INFO">Length is 16.</msg>
+<arg>${idproduto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.535264" elapsed="0.000092"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.535485" level="INFO">ID gerado: 0oBDKGTeNByGhzgJ</msg>
+<arg>ID gerado: ${idproduto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.535419" elapsed="0.000094"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.533328" elapsed="0.002220"/>
+</kw>
+<tag>Postproduto</tag>
+<status status="PASS" start="2025-06-05T18:10:58.785033" elapsed="0.750661"/>
+</test>
+<test id="s1-t2" name="CT-021 - - Atualização de produto válido" line="35">
+<kw name="Alterar nome produto" owner="produtos_keywords">
+<kw name="Criar dados dinamicos para produto" owner="dynamics">
+<kw name="Word" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.536813" level="INFO">${nomeproduto} = rule</msg>
+<var>${nomeproduto}</var>
+<doc>Generate a word.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.536666" elapsed="0.000169"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.537019" level="INFO">${preco} = 656</msg>
+<var>${preco}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.536925" elapsed="0.000116"/>
+</kw>
+<kw name="Sentence" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.537220" level="INFO">${descricao} = Guess gun its as increase market.</msg>
+<var>${descricao}</var>
+<doc>Generate a sentence.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.537111" elapsed="0.000129"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.537390" level="INFO">${quantidade} = 2642</msg>
+<var>${quantidade}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.537311" elapsed="0.000095"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.537629" level="INFO">${quantidade_carrinho} = 5</msg>
+<var>${quantidade_carrinho}</var>
+<arg>min=1</arg>
+<arg>max=10</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.537470" elapsed="0.000191"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.537985" level="INFO">${nomeproduto} = rule</msg>
+<arg>${nomeproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.537820" elapsed="0.000196"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.538204" level="INFO">${preco} = 656</msg>
+<arg>${preco}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.538096" elapsed="0.000135"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.538401" level="INFO">${descricao} = Guess gun its as increase market.</msg>
+<arg>${descricao}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.538305" elapsed="0.000120"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.538588" level="INFO">${quantidade} = 2642</msg>
+<arg>${quantidade}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.538492" elapsed="0.000120"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.538791" level="INFO">${quantidade_carrinho} = 5</msg>
+<arg>${quantidade_carrinho}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.538679" elapsed="0.000137"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.536525" elapsed="0.002328"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.539126" level="INFO">${payload} = {'nome': 'Joseph Ramos', 'preco': 656, 'descricao': 'Guess gun its as increase market.', 'quantidade': 2642}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>preco=${preco}</arg>
+<arg>descricao=${descricao}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.538922" elapsed="0.000230"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.539352" level="INFO">${payload} = {'nome': 'Joseph Ramos', 'preco': 656, 'descricao': 'Guess gun its as increase market.', 'quantidade': 2642}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.539249" elapsed="0.000236"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:10:59.539523" elapsed="0.000033"/>
+</return>
+<status status="PASS" start="2025-06-05T18:10:59.536332" elapsed="0.003296"/>
+</kw>
+<kw name="Enviar requisição PUT para /produtos/id com token" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.540194" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStV...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.540061" elapsed="0.000153"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:10:59.707041" level="INFO">PUT Request : url=https://compassuol.serverest.dev/produtos/0oBDKGTeNByGhzgJ 
+ path_url=/produtos/0oBDKGTeNByGhzgJ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStVti9CFy8VpsLhAr05z81xHIEFCz2BtqJdU', 'Content-Length': '108', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Joseph Ramos", "preco": 656, "descricao": "Guess gun its as increase market.", "quantidade": 2642}' 
+ </msg>
+<msg time="2025-06-05T18:10:59.707144" level="INFO">PUT Response : url=https://compassuol.serverest.dev/produtos/0oBDKGTeNByGhzgJ 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '338d5cad471df4c5a1d9e1ec9ba838dc', 'date': 'Thu, 05 Jun 2025 21:10:59 GMT', 'server': 'Google Frontend', 'Content-Length': '50'} 
+ body={
+    "message": "Registro alterado com sucesso"
+} 
+ </msg>
+<msg time="2025-06-05T18:10:59.707219" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:10:59.707577" level="INFO">${response_produto} = &lt;Response [200]&gt;</msg>
+<var>${response_produto}</var>
+<arg>serverest</arg>
+<arg>/produtos/${idproduto}</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.540286" elapsed="0.167332"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.708072" level="INFO">${response_produto} = &lt;Response [200]&gt;</msg>
+<arg>${response_produto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.707842" elapsed="0.000278"/>
+</kw>
+<arg>${idproduto}</arg>
+<status status="PASS" start="2025-06-05T18:10:59.539834" elapsed="0.168355"/>
+</kw>
+<kw name="Validar status code &quot;200&quot;" owner="base" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.709572" level="INFO">${statuscode} = 200</msg>
+<var>${statuscode}</var>
+<arg>${statuscode}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.709425" elapsed="0.000167"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${statuscode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.709690" elapsed="0.000355"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.710399" level="INFO">Status recebido: 200</msg>
+<arg>Status recebido: ${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.710128" elapsed="0.000303"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.708513" elapsed="0.001961"/>
+</kw>
+<kw name="Verificar mensagem de sucesso e alterações aplicadas" owner="produtos_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.711531" level="INFO">${json} = {
+  "message": "Registro alterado com sucesso"
+}</msg>
+<var>${json}</var>
+<arg>json.dumps(${response_produto.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.710876" elapsed="0.000677"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.711722" level="INFO">JSON da resposta:
+{
+  "message": "Registro alterado com sucesso"
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.711637" elapsed="0.000113"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:10:59.712103" level="INFO">${message} = Registro alterado com sucesso</msg>
+<var>${message}</var>
+<arg>${response_produto.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.711821" elapsed="0.000299"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Registro alterado com sucesso</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.712194" elapsed="0.000266"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.710708" elapsed="0.001797"/>
+</kw>
+<tag>Putproduto</tag>
+<status status="PASS" start="2025-06-05T18:10:59.536007" elapsed="0.176739"/>
+</test>
+<test id="s1-t3" name="CT-023 - - Listagem de produtos válida" line="47">
+<kw name="Criar dados validos" owner="usuarios_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.713960" level="INFO">${nome} = Tyler White</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:10:59.713713" elapsed="0.000265"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.714309" level="INFO">${email} = whitekayla@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:10:59.714058" elapsed="0.000269"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.714493" level="INFO">${senha} = Z28388372</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:10:59.714394" elapsed="0.000121"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.714723" level="INFO">${nome} = Tyler White</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.714613" elapsed="0.000136"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.714971" level="INFO">${email} = whitekayla@example.net</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.714819" elapsed="0.000177"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.715156" level="INFO">${senha} = Z28388372</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.715065" elapsed="0.000114"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.713586" elapsed="0.001625"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.715444" level="INFO">${payload} = {'nome': 'Tyler White', 'email': 'whitekayla@example.net', 'password': 'Z28388372', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<arg>administrador=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.715273" elapsed="0.000187"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.715627" level="INFO">${payload} = {'nome': 'Tyler White', 'email': 'whitekayla@example.net', 'password': 'Z28388372', 'administrador': 'true'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.715534" elapsed="0.000116"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:10:59.715681" elapsed="0.000030"/>
+</return>
+<status status="PASS" start="2025-06-05T18:10:59.713414" elapsed="0.002355"/>
+</kw>
+<kw name="Enviar requisição POST para /usuarios" owner="usuarios_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:10:59.883529" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '108', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Tyler White", "email": "whitekayla@example.net", "password": "Z28388372", "administrador": "true"}' 
+ </msg>
+<msg time="2025-06-05T18:10:59.883609" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '3c1efb6d0f421841a1d9e1ec9ba8341a', 'date': 'Thu, 05 Jun 2025 21:10:59 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "ejSAoLvxtywCGTbk"
+} 
+ </msg>
+<msg time="2025-06-05T18:10:59.883658" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:10:59.883948" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.716138" elapsed="0.167863"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.884473" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.884290" elapsed="0.000216"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.715982" elapsed="0.168572"/>
+</kw>
+<kw name="Gerar credenciais" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.885501" level="INFO">${nome} = Charles Walker</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:10:59.885193" elapsed="0.000330"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.885805" level="INFO">${email} = joshua76@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:10:59.885601" elapsed="0.000225"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:10:59.886025" level="INFO">${senha} = 070627783</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:10:59.885916" elapsed="0.000127"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.886264" level="INFO">${nome} = Charles Walker</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.886136" elapsed="0.000161"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.886470" level="INFO">${email} = joshua76@example.com</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.886374" elapsed="0.000120"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.886653" level="INFO">${senha} = 070627783</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.886562" elapsed="0.000114"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.885008" elapsed="0.001704"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.887385" level="INFO">${payload} = {'email': 'whitekayla@example.net', 'password': 'Z28388372'}</msg>
+<var>${payload}</var>
+<arg>email=${payload['email']}</arg>
+<arg>password=${payload['password']}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.886777" elapsed="0.000628"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.887593" level="INFO">${payload} = {'email': 'whitekayla@example.net', 'password': 'Z28388372'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.887488" elapsed="0.000130"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.884782" elapsed="0.002871"/>
+</kw>
+<kw name="Enviar requisição GET para /produtos com token" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:10:59.888183" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStV...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.888048" elapsed="0.000155"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:00.226432" level="INFO">GET Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1jY2xhaW5zdGV2ZW5AZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ikg4MjI1ODI4MCIsImlhdCI6MTc0OTE1Nzg1OCwiZXhwIjoxNzQ5MTU4NDU4fQ._6lvYqtStVti9CFy8VpsLhAr05z81xHIEFCz2BtqJdU'} 
+ body=None 
+ </msg>
+<msg time="2025-06-05T18:11:00.226757" level="INFO">GET Response : url=https://compassuol.serverest.dev/produtos 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '2adeec96aba396a3a1d9e1ec9ba831e6', 'date': 'Thu, 05 Jun 2025 21:10:59 GMT', 'server': 'Google Frontend', 'Content-Length': '42534'} 
+ body={
+    "quantidade": 203,
+    "produtos": [
+        {
+            "nome": "tough",
+            "preco": 4920,
+            "descricao": "Property society religious.",
+            "quantidade": 9152,
+            "_id": "0LPcEfnVHPeJu8zr"
+        },
+        {
+            "nome": "drive",
+            "preco": 333,
+            "descricao": "Organization improve prepare.",
+            "quantidade": 7169,
+            "_id": "0Ldk7VMFF0xCY3ep"
+        },
+        {
+            "nome": "Joseph Ramos",
+            "preco": 656,
+            "descricao": "Guess gun its as increase market.",
+            "quantidade": 2642,
+            "_id": "0oBDKGTeNByGhzgJ"
+        },
+        {
+            "nome": "amet",
+            "preco": 1999,
+            "descricao": "Test Product Edited",
+            "quantidade": 6,
+            "_id": "1FiGujdPj6db7sVi"
+        },
+        {
+            "nome": "Produto VrseBgoq",
+            "preco": 100,
+            "descricao": "Descrição do produto VrseBgoq",
+            "quantidade": 10,
+            "_id": "1ImfTc1YZamYaWlp"
+        },
+        {
+            "nome": "respond",
+            "preco": 1683,
+            "descricao": "Guess of my simply beyond play.",
+            "quantidade": 1226,
+            "_id": "1k7cgtGcWcP7yp2z"
+        },
+        {
+            "nome": "remain",
+            "preco": 1327,
+            "descricao": "List true office individual investment agent.",
+            "quantidade": 7046,
+            "_id": "2Vc2o7YfxXpNJcfm"
+        },
+        {
+            "nome": "factor",
+            "preco": 470,
+            "descricao": " Mouse",
+            "quantidade": "3791",
+            "_id": "2nptMZFgvK2CnDkD"
+        },
+        {
+            "nome": "Produto5702",
+            "preco": 100,
+            "descricao": "Produto: transition killer eyeballs",
+            "quantidade": 0,
+            "_id": "3QBcPmil6h4pSTG0"
+        },
+        {
+            "nome": "Pianoo",
+            "preco": 470,
+            "descricao": " Mouse",
+            "quantidade": 381,
+            "_id": "3teukl6e7sr13LYa"
+        },
+        {
+            "nome": "Donna Carter",
+            "preco": 8304,
+            "descricao": "Movement where room perform always.",
+            "quantidade": 6802,
+            "_id": "3yQ71yyqj3WTafjE"
+        },
+        {
+            "nome": "Syrian Arab Republic",
+            "preco": 60,
+            "descricao": "Teclado Gamer",
+            "quantidade": 4,
+            "_id": "4BHIt0dFF9qMtQpD"
+        },
+        {
+            "nome": "sign",
+            "preco": 470,
+            "descricao": " Mouse",
+            "quantidade": "3791",
+            "_id": "4VAFsnMgRrJgWJgs"
+        },
+        {
+            "nome": "Notebook Gamer DELL Atualizado 3x",
+            "preco": 2500,
+            "descricao": "Notebook Gamer com 16GB de RAM e 1TB SSD",
+            "quantidade": 5,
+            "_id": "4doyvDQbkwIrlypa"
+        },
+        {
+            "nome": "mean",
+            "preco": 3982,
+            "descricao": "Piece improve improve argue yourself hard imagine crime.",
+            "quantidade": 7172,
+            "_id": "4ueaSK2zs2lEPMeI"
+        },
+        {
+            "nome": "Produto Test 20250605145418024968136",
+            "preco": 100,
+            "descricao": "Segundo produto",
+            "quantidade": 50,
+            "_id": "5QKD3n6PGqCG7wfg"
+        },
+        {
+            "nome": "Susan Sullivan",
+            "preco": 4952,
+            "descricao": "Writer perhaps message reflect.",
+            "quantidade": 5723,
+            "_id": "5SB8er1DXX9vSwPK"
+        },
+        {
+            "nome": "Produto0198",
+            "preco": 100,
+            "descricao": "Produto: synergize proactive models",
+            "quantidade": 100,
+            "_id": "5T9OVWo2VkrjcUqv"
+        },
+        {
+            "nome": "Jacqueline Vaughn",
+            "preco": 3883,
+            "descricao": "Number situation least nature result like.",
+            "quantidade": 7018,
+            "_id": "5TF5ex4smJRuH5DF"
+        },
+        {
+            "nome": "Charles Herrera",
+            "preco": 7726,
+            "descricao": "Campaign serious performance bar series open shoulder.",
+            "quantidade": 3754,
+            "_id": "5drTkeQzZvbzmmMF"
+        },
+        {
+            "nome": "consumer",
+            "preco": 1331,
+            "descricao": "Consumer particularly population strategy.",
+            "quantidade": 1520,
+            "_id": "5rDJIdiDyzlpbBy1"
+        },
+        {
+            "nome": "we",
+            "preco": 6798,
+            "descricao": "Lawyer expect nature individual local.",
+            "quantidade": 5313,
+            "_id": "5t9NVNkGwNgvAesB"
+        },
+        {
+            "nome": "class",
+            "preco": 6854,
+            "descricao": "Hair society campaign forward man cultural south.",
+            "quantidade": 469,
+            "_id": "6cg4RpmyS4T4WVe5"
+        },
+        {
+            "nome": "Produto3400",
+            "preco": 200,
+            "descricao": "Produto: drive vertical eyeballs",
+            "quantidade": 100,
+            "_id": "7hiDqsdb4xpiO7yk"
+        },
+        {
+            "nome": "Notebook Gamer Superr",
+            "preco": 2000,
+            "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+            "quantidade": 100,
+            "_id": "7kMKHZz9brIWDJCH"
+        },
+        {
+            "nome": "quo",
+            "preco": 6661,
+            "descricao": "Test Product",
+            "quantidade": 0,
+            "_id": "7lyLU2SBvrK1ixhs"
+        },
+        {
+            "nome": "something",
+            "preco": 4830,
+            "descricao": "Floor approach plan food claim phone.",
+            "quantidade": 1238,
+            "_id": "7rH6zkVtyJsyABjD"
+        },
+        {
+            "nome": "Sarah Tapia",
+            "preco": 316,
+            "descricao": "Fall four bad song.",
+            "quantidade": 2376,
+            "_id": "7w0L9kSQ27TYUw4z"
+        },
+        {
+            "nome": "Produto4724",
+            "preco": 100,
+            "descricao": "Produto de Teste 2813",
+            "quantidade": 100,
+            "_id": "7wJjIJNlf2BZdh3W"
+        },
+        {
+            "nome": "middle",
+            "preco": 6665,
+            "descricao": "Pass find marriage approach administration sister receive yes.",
+            "quantidade": 9079,
+            "_id": "8k0M1THQMWOZxSYv"
+        },
+        {
+            "nome": "saepe",
+            "preco": 1999,
+            "descricao": "Test Product Edited",
+            "quantidade": 6,
+            "_id": "8wima6HPIqHS5L6z"
+        },
+        {
+            "nome": "account",
+            "preco": 479,
+            "descricao": "Newspaper others visit sport save less seek.",
+            "quantidade": 5321,
+            "_id": "8z4T94fc0CrxdVKL"
+        },
+        {
+            "nome": "purpose",
+            "preco": 3018,
+            "descricao": "Miss class personal black consumer.",
+            "quantidade": 4796,
+            "_id": "9ELwuAXxbaS2RNsx"
+        },
+        {
+            "nome": "Bradley Brown",
+            "preco": 4727,
+            "descricao": "As like usually guy fall nearly.",
+            "quantidade": 3911,
+            "_id": "B3TQkhUgevmcKZaG"
+        },
+        {
+            "nome": "find",
+            "preco": 8700,
+            "descricao": "School wonder find everyone.",
+            "quantidade": 3571,
+            "_id": "BRpbdAgfBSJ9qNf6"
+        },
+        {
+            "nome": "Logitech MX Vertical",
+            "preco": 470,
+            "descricao": "Mouse",
+            "quantidade": "3811",
+            "_id": "BeeJh5lz3k6kSIzA"
+        },
+        {
+            "nome": "sometimes",
+            "preco": 3927,
+            "descricao": "By occur experience drop.",
+            "quantidade": 7880,
+            "_id": "BfR1FdQ7WzD1KDCd"
+        },
+        {
+            "nome": "else",
+            "preco": 9110,
+            "descricao": "Economic fight writer hospital.",
+            "quantidade": 5090,
+            "_id": "C3IYhMNcWCzAm3tK"
+        },
+        {
+            "nome": "Produto Test 20250605145417552556221",
+            "preco": 100,
+            "descricao": "Produto para fluxo integrado",
+            "quantidade": 48,
+            "_id": "CKQ9UmdPFuKWjZFi"
+        },
+        {
+            "nome": "Julie Berger",
+            "preco": 5518,
+            "descricao": "Develop century wind else sort you on kind.",
+            "quantidade": 1431,
+            "_id": "CXwfe2mBgn4QzqRM"
+        },
+        {
+            "nome": "Produto1759",
+            "preco": 100,
+            "descricao": "Produto: whiteboard global vortals",
+            "quantidade": 50,
+            "_id": "CnMAp4ZVVny499Ga"
+        },
+        {
+            "nome": "odio",
+            "preco": 1999,
+            "descricao": "Test Product Edited",
+            "quantidade": 6,
+            "_id": "DBOeO3dQfq7xSyej"
+        },
+        {
+            "nome": "Mark Thompson",
+            "preco": 9176,
+            "descricao": "Say plan us loss believe computer true.",
+            "quantidade": 2389,
+            "_id": "DE8KIvW7hHfJR6b2"
+        },
+        {
+            "nome": "book",
+            "preco": 5330,
+            "descricao": "Oil method man difference card pull tax.",
+            "quantidade": 3342,
+            "_id": "DMqmsDlsVK5dsDUx"
+        },
+        {
+            "nome": "Produto gRDT9UQY",
+            "preco": 100,
+            "descricao": "Descrição do produto gRDT9UQY",
+            "quantidade": 10,
+            "_id": "EGmTM6KN1ZSQV7Hb"
+        },
+        {
+            "nome": "Produto 54l7Tbef",
+            "preco": 100,
+            "descricao": "Descrição do produto 54l7Tbef",
+            "quantidade": 10,
+            "_id": "EHjKLQpWbeIxdPKN"
+        },
+        {
+            "nome": "Olivia Huff",
+            "preco": 84,
+            "descricao": "Soon walk get bill this she.",
+            "quantidade": 3682,
+            "_id": "Ee8571T4Z1Etjysv"
+        },
+   ... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-06-05T18:11:00.226996" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:00.227325" level="INFO">${response_produto} = &lt;Response [200]&gt;</msg>
+<var>${response_produto}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:10:59.888293" elapsed="0.339073"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.227723" level="INFO">${response_produto} = &lt;Response [200]&gt;</msg>
+<arg>${response_produto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.227567" elapsed="0.000186"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:10:59.887874" elapsed="0.339923"/>
+</kw>
+<kw name="Validar status code 200" owner="produtos_keywords">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.228788" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response_produto.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.228370" elapsed="0.000458"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.229140" level="INFO">Status recebido: 200</msg>
+<arg>Status recebido: ${response_produto.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.228905" elapsed="0.000284"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.228063" elapsed="0.001163"/>
+</kw>
+<kw name="Verificar que a lista contém produtos válidos" owner="produtos_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.234727" level="INFO">${json} = {
+  "quantidade": 203,
+  "produtos": [
+    {
+      "nome": "tough",
+      "preco": 4920,
+      "descricao": "Property society religious.",
+      "quantidade": 9152,
+      "_id": "0LPcEfnVHPeJu8zr"
+   ...</msg>
+<var>${json}</var>
+<arg>json.dumps(${response_produto.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.229540" elapsed="0.005221"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.235033" level="INFO">JSON da resposta:
+{
+  "quantidade": 203,
+  "produtos": [
+    {
+      "nome": "tough",
+      "preco": 4920,
+      "descricao": "Property society religious.",
+      "quantidade": 9152,
+      "_id": "0LPcEfnVHPeJu8zr"
+    },
+    {
+      "nome": "drive",
+      "preco": 333,
+      "descricao": "Organization improve prepare.",
+      "quantidade": 7169,
+      "_id": "0Ldk7VMFF0xCY3ep"
+    },
+    {
+      "nome": "Joseph Ramos",
+      "preco": 656,
+      "descricao": "Guess gun its as increase market.",
+      "quantidade": 2642,
+      "_id": "0oBDKGTeNByGhzgJ"
+    },
+    {
+      "nome": "amet",
+      "preco": 1999,
+      "descricao": "Test Product Edited",
+      "quantidade": 6,
+      "_id": "1FiGujdPj6db7sVi"
+    },
+    {
+      "nome": "Produto VrseBgoq",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto VrseBgoq",
+      "quantidade": 10,
+      "_id": "1ImfTc1YZamYaWlp"
+    },
+    {
+      "nome": "respond",
+      "preco": 1683,
+      "descricao": "Guess of my simply beyond play.",
+      "quantidade": 1226,
+      "_id": "1k7cgtGcWcP7yp2z"
+    },
+    {
+      "nome": "remain",
+      "preco": 1327,
+      "descricao": "List true office individual investment agent.",
+      "quantidade": 7046,
+      "_id": "2Vc2o7YfxXpNJcfm"
+    },
+    {
+      "nome": "factor",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": "3791",
+      "_id": "2nptMZFgvK2CnDkD"
+    },
+    {
+      "nome": "Produto5702",
+      "preco": 100,
+      "descricao": "Produto: transition killer eyeballs",
+      "quantidade": 0,
+      "_id": "3QBcPmil6h4pSTG0"
+    },
+    {
+      "nome": "Pianoo",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "3teukl6e7sr13LYa"
+    },
+    {
+      "nome": "Donna Carter",
+      "preco": 8304,
+      "descricao": "Movement where room perform always.",
+      "quantidade": 6802,
+      "_id": "3yQ71yyqj3WTafjE"
+    },
+    {
+      "nome": "Syrian Arab Republic",
+      "preco": 60,
+      "descricao": "Teclado Gamer",
+      "quantidade": 4,
+      "_id": "4BHIt0dFF9qMtQpD"
+    },
+    {
+      "nome": "sign",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": "3791",
+      "_id": "4VAFsnMgRrJgWJgs"
+    },
+    {
+      "nome": "Notebook Gamer DELL Atualizado 3x",
+      "preco": 2500,
+      "descricao": "Notebook Gamer com 16GB de RAM e 1TB SSD",
+      "quantidade": 5,
+      "_id": "4doyvDQbkwIrlypa"
+    },
+    {
+      "nome": "mean",
+      "preco": 3982,
+      "descricao": "Piece improve improve argue yourself hard imagine crime.",
+      "quantidade": 7172,
+      "_id": "4ueaSK2zs2lEPMeI"
+    },
+    {
+      "nome": "Produto Test 20250605145418024968136",
+      "preco": 100,
+      "descricao": "Segundo produto",
+      "quantidade": 50,
+      "_id": "5QKD3n6PGqCG7wfg"
+    },
+    {
+      "nome": "Susan Sullivan",
+      "preco": 4952,
+      "descricao": "Writer perhaps message reflect.",
+      "quantidade": 5723,
+      "_id": "5SB8er1DXX9vSwPK"
+    },
+    {
+      "nome": "Produto0198",
+      "preco": 100,
+      "descricao": "Produto: synergize proactive models",
+      "quantidade": 100,
+      "_id": "5T9OVWo2VkrjcUqv"
+    },
+    {
+      "nome": "Jacqueline Vaughn",
+      "preco": 3883,
+      "descricao": "Number situation least nature result like.",
+      "quantidade": 7018,
+      "_id": "5TF5ex4smJRuH5DF"
+    },
+    {
+      "nome": "Charles Herrera",
+      "preco": 7726,
+      "descricao": "Campaign serious performance bar series open shoulder.",
+      "quantidade": 3754,
+      "_id": "5drTkeQzZvbzmmMF"
+    },
+    {
+      "nome": "consumer",
+      "preco": 1331,
+      "descricao": "Consumer particularly population strategy.",
+      "quantidade": 1520,
+      "_id": "5rDJIdiDyzlpbBy1"
+    },
+    {
+      "nome": "we",
+      "preco": 6798,
+      "descricao": "Lawyer expect nature individual local.",
+      "quantidade": 5313,
+      "_id": "5t9NVNkGwNgvAesB"
+    },
+    {
+      "nome": "class",
+      "preco": 6854,
+      "descricao": "Hair society campaign forward man cultural south.",
+      "quantidade": 469,
+      "_id": "6cg4RpmyS4T4WVe5"
+    },
+    {
+      "nome": "Produto3400",
+      "preco": 200,
+      "descricao": "Produto: drive vertical eyeballs",
+      "quantidade": 100,
+      "_id": "7hiDqsdb4xpiO7yk"
+    },
+    {
+      "nome": "Notebook Gamer Superr",
+      "preco": 2000,
+      "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+      "quantidade": 100,
+      "_id": "7kMKHZz9brIWDJCH"
+    },
+    {
+      "nome": "quo",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "7lyLU2SBvrK1ixhs"
+    },
+    {
+      "nome": "something",
+      "preco": 4830,
+      "descricao": "Floor approach plan food claim phone.",
+      "quantidade": 1238,
+      "_id": "7rH6zkVtyJsyABjD"
+    },
+    {
+      "nome": "Sarah Tapia",
+      "preco": 316,
+      "descricao": "Fall four bad song.",
+      "quantidade": 2376,
+      "_id": "7w0L9kSQ27TYUw4z"
+    },
+    {
+      "nome": "Produto4724",
+      "preco": 100,
+      "descricao": "Produto de Teste 2813",
+      "quantidade": 100,
+      "_id": "7wJjIJNlf2BZdh3W"
+    },
+    {
+      "nome": "middle",
+      "preco": 6665,
+      "descricao": "Pass find marriage approach administration sister receive yes.",
+      "quantidade": 9079,
+      "_id": "8k0M1THQMWOZxSYv"
+    },
+    {
+      "nome": "saepe",
+      "preco": 1999,
+      "descricao": "Test Product Edited",
+      "quantidade": 6,
+      "_id": "8wima6HPIqHS5L6z"
+    },
+    {
+      "nome": "account",
+      "preco": 479,
+      "descricao": "Newspaper others visit sport save less seek.",
+      "quantidade": 5321,
+      "_id": "8z4T94fc0CrxdVKL"
+    },
+    {
+      "nome": "purpose",
+      "preco": 3018,
+      "descricao": "Miss class personal black consumer.",
+      "quantidade": 4796,
+      "_id": "9ELwuAXxbaS2RNsx"
+    },
+    {
+      "nome": "Bradley Brown",
+      "preco": 4727,
+      "descricao": "As like usually guy fall nearly.",
+      "quantidade": 3911,
+      "_id": "B3TQkhUgevmcKZaG"
+    },
+    {
+      "nome": "find",
+      "preco": 8700,
+      "descricao": "School wonder find everyone.",
+      "quantidade": 3571,
+      "_id": "BRpbdAgfBSJ9qNf6"
+    },
+    {
+      "nome": "Logitech MX Vertical",
+      "preco": 470,
+      "descricao": "Mouse",
+      "quantidade": "3811",
+      "_id": "BeeJh5lz3k6kSIzA"
+    },
+    {
+      "nome": "sometimes",
+      "preco": 3927,
+      "descricao": "By occur experience drop.",
+      "quantidade": 7880,
+      "_id": "BfR1FdQ7WzD1KDCd"
+    },
+    {
+      "nome": "else",
+      "preco": 9110,
+      "descricao": "Economic fight writer hospital.",
+      "quantidade": 5090,
+      "_id": "C3IYhMNcWCzAm3tK"
+    },
+    {
+      "nome": "Produto Test 20250605145417552556221",
+      "preco": 100,
+      "descricao": "Produto para fluxo integrado",
+      "quantidade": 48,
+      "_id": "CKQ9UmdPFuKWjZFi"
+    },
+    {
+      "nome": "Julie Berger",
+      "preco": 5518,
+      "descricao": "Develop century wind else sort you on kind.",
+      "quantidade": 1431,
+      "_id": "CXwfe2mBgn4QzqRM"
+    },
+    {
+      "nome": "Produto1759",
+      "preco": 100,
+      "descricao": "Produto: whiteboard global vortals",
+      "quantidade": 50,
+      "_id": "CnMAp4ZVVny499Ga"
+    },
+    {
+      "nome": "odio",
+      "preco": 1999,
+      "descricao": "Test Product Edited",
+      "quantidade": 6,
+      "_id": "DBOeO3dQfq7xSyej"
+    },
+    {
+      "nome": "Mark Thompson",
+      "preco": 9176,
+      "descricao": "Say plan us loss believe computer true.",
+      "quantidade": 2389,
+      "_id": "DE8KIvW7hHfJR6b2"
+    },
+    {
+      "nome": "book",
+      "preco": 5330,
+      "descricao": "Oil method man difference card pull tax.",
+      "quantidade": 3342,
+      "_id": "DMqmsDlsVK5dsDUx"
+    },
+    {
+      "nome": "Produto gRDT9UQY",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto gRDT9UQY",
+      "quantidade": 10,
+      "_id": "EGmTM6KN1ZSQV7Hb"
+    },
+    {
+      "nome": "Produto 54l7Tbef",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto 54l7Tbef",
+      "quantidade": 10,
+      "_id": "EHjKLQpWbeIxdPKN"
+    },
+    {
+      "nome": "Olivia Huff",
+      "preco": 84,
+      "descricao": "Soon walk get bill this she.",
+      "quantidade": 3682,
+      "_id": "Ee8571T4Z1Etjysv"
+    },
+    {
+      "nome": "speak",
+      "preco": 7076,
+      "descricao": "Eight day notice air guy success present such.",
+      "quantidade": 1951,
+      "_id": "EfTbwPBvtQ1C9Gjw"
+    },
+    {
+      "nome": "Kenneth Rose",
+      "preco": 2253,
+      "descricao": "Discussion course camera interview exist source suffer degree.",
+      "quantidade": 3225,
+      "_id": "EnWgxbb8f5dOelhu"
+    },
+    {
+      "nome": "Produto0934",
+      "preco": 100,
+      "descricao": "Produto: integrate cross-platform synergies",
+      "quantidade": 50,
+      "_id": "FJn9uMNi8eOb1ums"
+    },
+    {
+      "nome": "affect",
+      "preco": 9478,
+      "descricao": "Across large throw run.",
+      "quantidade": 5014,
+      "_id": "FZFcML5nZOBK0Cio"
+    },
+    {
+      "nome": "anyone-74852",
+      "preco": 777,
+      "descricao": "Produto do Carrinho",
+      "quantidade": 5,
+      "_id": "Frag1eGvVhtzcT8F"
+    },
+    {
+      "nome": "Produto3065",
+      "preco": 100,
+      "descricao": "Produto: envisioneer virtual e-markets",
+      "quantidade": 100,
+      "_id": "HEcuXLW7i8VKU5co"
+    },
+    {
+      "nome": "drug",
+      "preco": 870,
+      "descricao": "Security he act hot room throw.",
+      "quantidade": 3465,
+      "_id": "HPFJWrJ8YR7VKefZ"
+    },
+    {
+      "nome": "Paul Fritz",
+      "preco": 4309,
+      "descricao": "Evidence hair perhaps soldier world foreign then.",
+      "quantidade": 8403,
+      "_id": "HT5B4VO8nRicm6jE"
+    },
+    {
+      "nome": "Kyle Pollard",
+      "preco": 5320,
+      "descricao": "Risk sure everybody federal.",
+      "quantidade": 1083,
+      "_id": "Hk6HZ6WK1Xi3tqpl"
+    },
+    {
+      "nome": "message",
+      "preco": 419,
+      "descricao": "Establish price value many activity seek station air.",
+      "quantidade": 7818,
+      "_id": "Hw1qto3Yx0genA0E"
+    },
+    {
+      "nome": "keep-26656",
+      "preco": 777,
+      "descricao": "Produto do Carrinho",
+      "quantidade": 4,
+      "_id": "Ig3oRDj7T36whUDE"
+    },
+    {
+      "nome": "Mark West",
+      "preco": 2155,
+      "descricao": "Thought card eat great tonight who save.",
+      "quantidade": 3047,
+      "_id": "JErcMCVWKsaw4zWS"
+    },
+    {
+      "nome": "quaerat quaerat",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "Jhkw7Mb5SA4XDuWg"
+    },
+    {
+      "nome": "totam totam",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "K3kThdu6AlTfltcC"
+    },
+    {
+      "nome": "Samsung 60 polegadas",
+      "preco": 5240,
+      "descricao": "TV",
+      "quantidade": 49977,
+      "_id": "K6leHdftCeOJj8BJ"
+    },
+    {
+      "nome": "Olivia Maldonado",
+      "preco": 4878,
+      "descricao": "Exist half action truth.",
+      "quantidade": 6235,
+      "_id": "KZexuAprgpm0I85h"
+    },
+    {
+      "nome": "Produto5883",
+      "preco": 100,
+      "descricao": "Produto de Teste 9872",
+      "quantidade": 100,
+      "_id": "L1JW9NcTQPAuGJGb"
+    },
+    {
+      "nome": "someone",
+      "preco": 3120,
+      "descricao": "Wrong six foot key idea.",
+      "quantidade": 3724,
+      "_id": "LBDeBW3QQwDNdXI7"
+    },
+    {
+      "nome": "Pianoooo",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 380,
+      "_id": "LEoKEadb6tjjBkB3"
+    },
+    {
+      "nome": "stuff-02841",
+      "preco": 777,
+      "descricao": "Produto do Carrinho",
+      "quantidade": 5,
+      "_id": "LVlIITzbsyyIpse1"
+    },
+    {
+      "nome": "model",
+      "preco": 9402,
+      "descricao": "Including within ask cup job.",
+      "quantidade": 3599,
+      "_id": "Lc85PwfnjTuhNiJx"
+    },
+    {
+      "nome": "everyone",
+      "preco": 7754,
+      "descricao": "Person husband just.",
+      "quantidade": 2932,
+      "_id": "LooiKcgRrTIV54o3"
+    },
+    {
+      "nome": "cause",
+      "preco": 1535,
+      "descricao": "Positive miss anything.",
+      "quantidade": 4069,
+      "_id": "N4AjNZLwdtTcfbwW"
+    },
+    {
+      "nome": "Produto Test 20250605145414872564879",
+      "preco": 100,
+      "descricao": "Produto para testes automatizados do Challenge Compass",
+      "quantidade": 50,
+      "_id": "NFCwprLlefcOY1hC"
+    },
+    {
+      "nome": "Pianoooooooo",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": "3801",
+      "_id": "NQtvwf3Uy3ISsRpp"
+    },
+    {
+      "nome": "Paul Obrien",
+      "preco": 3161,
+      "descricao": "Check try beyond current become laugh standard detail.",
+      "quantidade": 2237,
+      "_id": "NUGpQWglxeKpNxmL"
+    },
+    {
+      "nome": "five-35847",
+      "preco": 777,
+      "descricao": "Produto do Carrinho",
+      "quantidade": 5,
+      "_id": "NsjHlPojCAFnD3dj"
+    },
+    {
+      "nome": "Kristine Anderson",
+      "preco": 2573,
+      "descricao": "Attorney true even can.",
+      "quantidade": 3331,
+      "_id": "NuSSBLOxFPrEFiFz"
+    },
+    {
+      "nome": "soldier",
+      "preco": 4941,
+      "descricao": "Care family head through administration agency probably former.",
+      "quantidade": 8466,
+      "_id": "O7pYpLHgtGAJyvN9"
+    },
+    {
+      "nome": "Produto kKr9pgH7",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto kKr9pgH7",
+      "quantidade": 10,
+      "_id": "OMzI9gTVf53aBt3C"
+    },
+    {
+      "nome": "Produto eUJcDFiA",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto eUJcDFiA",
+      "quantidade": 10,
+      "_id": "P07ioHwO1oAhfNvT"
+    },
+    {
+      "nome": "Produto8476",
+      "preco": 100,
+      "descricao": "Produto de Teste 3678",
+      "quantidade": 100,
+      "_id": "P5YsKzxaZkRPQSaS"
+    },
+    {
+      "nome": "relate",
+      "preco": 777,
+      "descricao": "Criado via PUT com ID desconhecido",
+      "quantidade": 12,
+      "_id": "PFlRSehQS009yWku"
+    },
+    {
+      "nome": "Notebook Gamer DELL",
+      "preco": 2000,
+      "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+      "quantidade": 100,
+      "_id": "PWzil6fS25CNEwOb"
+    },
+    {
+      "nome": "in",
+      "preco": 1856,
+      "descricao": "Talk any camera pressure policy run.",
+      "quantidade": 3755,
+      "_id": "PihQECF7beOrnztJ"
+    },
+    {
+      "nome": "praesentium praesentium",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "Pqh53T4brZe8bQtg"
+    },
+    {
+      "nome": "common",
+      "preco": 5253,
+      "descricao": "Term else another.",
+      "quantidade": 2434,
+      "_id": "PsbGkvqVNMqOCboX"
+    },
+    {
+      "nome": "resource",
+      "preco": 6029,
+      "descricao": "Project indeed region street audience.",
+      "quantidade": 6944,
+      "_id": "QKYIHeCRqrHEKZs9"
+    },
+    {
+      "nome": "Mary Martinez",
+      "preco": 1262,
+      "descricao": "Close worker our activity than.",
+      "quantidade": 1522,
+      "_id": "QtHbMwsQQdX7OywH"
+    },
+    {
+      "nome": "knowledge",
+      "preco": 885,
+      "descricao": "Full turn too.",
+      "quantidade": 8674,
+      "_id": "QySpmGE0USD1cSYh"
+    },
+    {
+      "nome": "Philip Mitchell",
+      "preco": 560,
+      "descricao": "Energy ahead next old indicate use.",
+      "quantidade": 8467,
+      "_id": "R77IhkPFsVzDLvM6"
+    },
+    {
+      "nome": "off",
+      "preco": 9332,
+      "descricao": "Truth standard charge least quickly no.",
+      "quantidade": 2053,
+      "_id": "RDWyKXcIL5qELqpX"
+    },
+    {
+      "nome": "provide-29202",
+      "preco": 777,
+      "descricao": "Produto do Carrinho",
+      "quantidade": 4,
+      "_id": "RVmRw4x5AMWtMMps"
+    },
+    {
+      "nome": "would",
+      "preco": 9881,
+      "descricao": "Some view language energy control organization risk past.",
+      "quantidade": 6137,
+      "_id": "RZjKC4kgzq4ZpITb"
+    },
+    {
+      "nome": "Joe Hancock",
+      "preco": 4900,
+      "descricao": "Pretty view call tough group.",
+      "quantidade": 8159,
+      "_id": "Rn1Fx0IpB958AY9z"
+    },
+    {
+      "nome": "Piano",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 380,
+      "_id": "S4yXDgqQy7Oe9ZmQ"
+    },
+    {
+      "nome": "agency",
+      "preco": 7128,
+      "descricao": "Soon ground pull other assume rise might property.",
+      "quantidade": 236,
+      "_id": "Slu70j8Cs7JaJAfe"
+    },
+    {
+      "nome": "Pandeiro",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "SucMFszMs9RAqFGR"
+    },
+    {
+      "nome": "dolores dolores",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "TNBXOmM2xz6Xzmfy"
+    },
+    {
+      "nome": "medical",
+      "preco": 3249,
+      "descricao": "Some realize customer wind.",
+      "quantidade": 9144,
+      "_id": "TOXRdAqIP7hXabEP"
+    },
+    {
+      "nome": "help",
+      "preco": 7298,
+      "descricao": "Will spring front.",
+      "quantidade": 168,
+      "_id": "TQxyoTF9p3cjVpc9"
+    },
+    {
+      "nome": "Produto8037",
+      "preco": 100,
+      "descricao": "Produto de Teste 1553",
+      "quantidade": 1,
+      "_id": "UlBo6ZMSHJmYmcDi"
+    },
+    {
+      "nome": "vote",
+      "preco": 9250,
+      "descricao": "Gas artist camera dog.",
+      "quantidade": 7667,
+      "_id": "UyLvVjOsvTXv5od2"
+    },
+    {
+      "nome": "Jason Golden",
+      "preco": 5665,
+      "descricao": "History a from room.",
+      "quantidade": 3590,
+      "_id": "UypMN5h2paKHs5vA"
+    },
+    {
+      "nome": "meeting",
+      "preco": 1836,
+      "descricao": "Before month bank ready particularly piece use.",
+      "quantidade": 4734,
+      "_id": "VQEe3PLOBO2yf3vi"
+    },
+    {
+      "nome": "southern",
+      "preco": 777,
+      "descricao": "Produto para duplica\u00e7\u00e3o",
+      "quantidade": 10,
+      "_id": "VR3dfEyAb8V0wHbU"
+    },
+    {
+      "nome": "James Clarke",
+      "preco": 1891,
+      "descricao": "Back get garden standard can level.",
+      "quantidade": 9776,
+      "_id": "VZG99XLxmznwnJLA"
+    },
+    {
+      "nome": "Notebook Gamer DELL SS",
+      "preco": 2000,
+      "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+      "quantidade": 100,
+      "_id": "VsBusY5IgGaN4Dxf"
+    },
+    {
+      "nome": "finally",
+      "preco": 2347,
+      "descricao": "Theory let day paper information lay option.",
+      "quantidade": 8040,
+      "_id": "W1H6klf4CBKvNtc4"
+    },
+    {
+      "nome": "enim",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "WuHrcy8VZAvYH35P"
+    },
+    {
+      "nome": "impact",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "X4P8HOmzsTLurcJ5"
+    },
+    {
+      "nome": "Produto oazE3wId",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto oazE3wId",
+      "quantidade": 10,
+      "_id": "X6EB4D2X730y8KES"
+    },
+    {
+      "nome": "ex",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "XMz8xJJRTQDB5Eeg"
+    },
+    {
+      "nome": "Produto3710",
+      "preco": 100,
+      "descricao": "Produto de Teste 5936",
+      "quantidade": 0,
+      "_id": "Xc1rHYuH0iIXlwO5"
+    },
+    {
+      "nome": "Processador Intel Core i7",
+      "preco": 2000,
+      "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+      "quantidade": 100,
+      "_id": "YXHnwx5X0ZZcyLZ7"
+    },
+    {
+      "nome": "Produto5764",
+      "preco": 100,
+      "descricao": "Produto: strategize end-to-end channels",
+      "quantidade": 1,
+      "_id": "YlmzmuC6kvjnH7EG"
+    },
+    {
+      "nome": "learn",
+      "preco": 27,
+      "descricao": "Budget family project hour president yourself.",
+      "quantidade": 1675,
+      "_id": "Z1KOM6dcVxtaU9Vc"
+    },
+    {
+      "nome": "school",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "Z7QnuUYiGMQEcht0"
+    },
+    {
+      "nome": "radio",
+      "preco": 120,
+      "descricao": "Economic morning movement produce never certain simply.",
+      "quantidade": 3914,
+      "_id": "ZCgkMcDtFddf5V8o"
+    },
+    {
+      "nome": "Notebook Gamer SuperPRO",
+      "preco": 2000,
+      "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+      "quantidade": 100,
+      "_id": "ZHLJrN8tqoLjAohc"
+    },
+    {
+      "nome": "scene",
+      "preco": 8725,
+      "descricao": "Admit direction clearly fine do interest doctor side.",
+      "quantidade": 181,
+      "_id": "ZQqK6sPNlWQ3e9L5"
+    },
+    {
+      "nome": "Jill Walker",
+      "preco": 6742,
+      "descricao": "Anything box memory former election middle property.",
+      "quantidade": 5803,
+      "_id": "Zfim8xbNdeJWdVSv"
+    },
+    {
+      "nome": "Stephen Lewis",
+      "preco": 7350,
+      "descricao": "Lose analysis federal.",
+      "quantidade": 6066,
+      "_id": "a7lya0deSwfo76xw"
+    },
+    {
+      "nome": "per",
+      "preco": 7333,
+      "descricao": "Certainly young present Republican instead pull organization.",
+      "quantidade": 7771,
+      "_id": "aNljtdea6zD7bjYY"
+    },
+    {
+      "nome": "Jonathan Bentley",
+      "preco": 3293,
+      "descricao": "Be section sport area minute forward now turn.",
+      "quantidade": 6849,
+      "_id": "acSnMp4zMknIkaFG"
+    },
+    {
+      "nome": "dolorem",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "azxiZtlxyyEviMm3"
+    },
+    {
+      "nome": "final",
+      "preco": 100,
+      "descricao": "Produto A",
+      "quantidade": 5,
+      "_id": "bdEF59gDpPnnYGi1"
+    },
+    {
+      "nome": "Produto3703",
+      "preco": 999,
+      "descricao": "Produto: empower vertical supply-chains",
+      "quantidade": 10,
+      "_id": "bxmNWuLhzFpTqdRD"
+    },
+    {
+      "nome": "person",
+      "preco": 4478,
+      "descricao": "Mission foot hour white decade stock against bag.",
+      "quantidade": 4493,
+      "_id": "cpfZY85YJzo4dNhX"
+    },
+    {
+      "nome": "corporis",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "ctt5Stm3FYrkLa2a"
+    },
+    {
+      "nome": "six",
+      "preco": 6529,
+      "descricao": "Network case them fish huge by.",
+      "quantidade": 1116,
+      "_id": "dDTuiRXYsFrtQIbn"
+    },
+    {
+      "nome": "government",
+      "preco": 1222,
+      "descricao": "Five I place forget together while ask.",
+      "quantidade": 5477,
+      "_id": "dR6KzJrZcgoq3iD6"
+    },
+    {
+      "nome": "you",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "dSgdHFJp3sk3OntW"
+    },
+    {
+      "nome": "Notebook Gamer DELL Atualizado 2x",
+      "preco": 2500,
+      "descricao": "Notebook Gamer com 16GB de RAM e 1TB SSD",
+      "quantidade": 5,
+      "_id": "dwPDbj6U24bCCnZS"
+    },
+    {
+      "nome": "John Vargas",
+      "preco": 4484,
+      "descricao": "Decision many understand include explain need.",
+      "quantidade": 7476,
+      "_id": "eFLemjF8047AIlCa"
+    },
+    {
+      "nome": "Dennis Dunn",
+      "preco": 8117,
+      "descricao": "Shake should nice try region give.",
+      "quantidade": 5030,
+      "_id": "eM3CgKpSN6yr2foY"
+    },
+    {
+      "nome": "dolore",
+      "preco": 1999,
+      "descricao": "Test Product Edited",
+      "quantidade": 6,
+      "_id": "eM3yZCTn9gSKRU4t"
+    },
+    {
+      "nome": "Amy Salas",
+      "preco": 3102,
+      "descricao": "Floor relationship never computer join husband improve lay.",
+      "quantidade": 8713,
+      "_id": "ecM8hmzsYMzH1pMP"
+    },
+    {
+      "nome": "Richard Sanders",
+      "preco": 4536,
+      "descricao": "Cold member thank street individual.",
+      "quantidade": 6173,
+      "_id": "fS70QSMtSUMDWtOn"
+    },
+    {
+      "nome": "production",
+      "preco": 4823,
+      "descricao": "Our glass pretty growth adult too agent entire.",
+      "quantidade": 9,
+      "_id": "gHfcXweb9PzE3jgz"
+    },
+    {
+      "nome": "play",
+      "preco": 7115,
+      "descricao": "Whom concern in discuss character dog.",
+      "quantidade": 1147,
+      "_id": "gLpBs40nC7UhURPu"
+    },
+    {
+      "nome": "letter",
+      "preco": 8884,
+      "descricao": "Animal popular fear.",
+      "quantidade": 5580,
+      "_id": "gqMtaCHmEpfoYtX8"
+    },
+    {
+      "nome": "Mouse",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "gtBF6Ury2BKe1dbI"
+    },
+    {
+      "nome": "Produto1214",
+      "preco": 100,
+      "descricao": "Produto: grow value-added web-readiness",
+      "quantidade": 100,
+      "_id": "h0cRlhdHJDrfVfz6"
+    },
+    {
+      "nome": "statement",
+      "preco": 3008,
+      "descricao": "Already such line by all power member.",
+      "quantidade": 4419,
+      "_id": "h1p7uBlVqdrOcEfK"
+    },
+    {
+      "nome": "Viola",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "hAubsLRYjx3itV18"
+    },
+    {
+      "nome": "odit odit",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "hTiUKN7JciY9Uvaz"
+    },
+    {
+      "nome": "challenge",
+      "preco": 3564,
+      "descricao": "Mother media bar miss young send rise.",
+      "quantidade": 7719,
+      "_id": "hiISg42gnViAimTs"
+    },
+    {
+      "nome": "Processador Intel Core i5",
+      "preco": 2000,
+      "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+      "quantidade": 100,
+      "_id": "hpHEoFWAICB8Gr5Q"
+    },
+    {
+      "nome": "Produto3229",
+      "preco": 100,
+      "descricao": "Produto de Teste 2513",
+      "quantidade": 1,
+      "_id": "iv5WcN51hCmWQ6cy"
+    },
+    {
+      "nome": "Produto8081",
+      "preco": 100,
+      "descricao": "Produto: e-enable innovative functionalities",
+      "quantidade": 50,
+      "_id": "iyZRlKNz2D7eQ7pi"
+    },
+    {
+      "nome": "perspiciatis",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "jhROnqbUm5lVTZ8V"
+    },
+    {
+      "nome": "Produto7743",
+      "preco": 100,
+      "descricao": "Produto de Teste 2345",
+      "quantidade": 0,
+      "_id": "kDS557tzRXXdkR6q"
+    },
+    {
+      "nome": "increase",
+      "preco": 899,
+      "descricao": "Human ready no student country training.",
+      "quantidade": 4423,
+      "_id": "kjW3a7UuYeEzGpFr"
+    },
+    {
+      "nome": "sea",
+      "preco": 1037,
+      "descricao": "Prevent choice television president player fly.",
+      "quantidade": 9160,
+      "_id": "lAE0vNwDfRBCaLl7"
+    },
+    {
+      "nome": "Produto8444",
+      "preco": 100,
+      "descricao": "Produto: monetize best-of-breed metrics",
+      "quantidade": 1,
+      "_id": "lzM45FHnOxCEFNby"
+    },
+    {
+      "nome": "economy",
+      "preco": 7740,
+      "descricao": "Wear amount other each people myself.",
+      "quantidade": 8596,
+      "_id": "m2APp0yNvceKuWkr"
+    },
+    {
+      "nome": "Processador Ryzen 7",
+      "preco": 780,
+      "descricao": "CPU com 8 n\u00facleos e 16 threads",
+      "quantidade": 15,
+      "_id": "mCleeaK7t75RFTaw"
+    },
+    {
+      "nome": "dinner",
+      "preco": 3079,
+      "descricao": "Table second but think better.",
+      "quantidade": 1775,
+      "_id": "mUUhD7AHTGbDyYpn"
+    },
+    {
+      "nome": "Processador Intel Core i3",
+      "preco": 2000,
+      "descricao": "Notebook Gamer com 16GB de RAM e 512GB SSD",
+      "quantidade": 100,
+      "_id": "mbUEIWzI63cf4ndK"
+    },
+    {
+      "nome": "phone",
+      "preco": 5283,
+      "descricao": "During seek your citizen middle local section stuff.",
+      "quantidade": 7389,
+      "_id": "msVFFQIvtFEiUxI0"
+    },
+    {
+      "nome": "Violoncelo",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "nFaAf6KLHULVgf69"
+    },
+    {
+      "nome": "wall",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "nKamyG5FBBW4dBOK"
+    },
+    {
+      "nome": "Notebook Gamer DELL Atualizado 4x",
+      "preco": 2500,
+      "descricao": "Notebook Gamer com 16GB de RAM e 1TB SSD",
+      "quantidade": 5,
+      "_id": "nUm3ewoEdgjUDUEz"
+    },
+    {
+      "nome": "placeat placeat",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "noQzE50eC5RveenG"
+    },
+    {
+      "nome": "Roy Robinson",
+      "preco": 4162,
+      "descricao": "Water rock education nearly enjoy life best when.",
+      "quantidade": 4966,
+      "_id": "oAYBgLDjvQ6ribEB"
+    },
+    {
+      "nome": "amet amet",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "oB550zNNsSGFOLqB"
+    },
+    {
+      "nome": "those",
+      "preco": 8818,
+      "descricao": "Call since three brother technology season.",
+      "quantidade": 5379,
+      "_id": "od9NZlX9NAOrbZla"
+    },
+    {
+      "nome": "recusandae",
+      "preco": 1999,
+      "descricao": "Test Product Edited",
+      "quantidade": 6,
+      "_id": "otiHuiLyA9W1YdrK"
+    },
+    {
+      "nome": "Guitarra",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "p4fmZmMTjjYQt992"
+    },
+    {
+      "nome": "Jose Huffman",
+      "preco": 114,
+      "descricao": "Interest treat brother respond.",
+      "quantidade": 5758,
+      "_id": "pcvxtexzwq9hthNy"
+    },
+    {
+      "nome": "incidunt incidunt",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "q2qr2pYulsadkSBA"
+    },
+    {
+      "nome": "Produto Test 20250605145418023239325",
+      "preco": 100,
+      "descricao": "Primeiro produto",
+      "quantidade": 50,
+      "_id": "qGx0pmLz2d1lRqGr"
+    },
+    {
+      "nome": "trip",
+      "preco": 777,
+      "descricao": "Produto de teste",
+      "quantidade": 5,
+      "_id": "qWTfFmBisFYszIHk"
+    },
+    {
+      "nome": "never",
+      "preco": 296,
+      "descricao": "Choice have among manage writer.",
+      "quantidade": 523,
+      "_id": "qePLPfY8wF044xdM"
+    },
+    {
+      "nome": "Produto4626",
+      "preco": 100,
+      "descricao": "Produto: synergize rich solutions",
+      "quantidade": 50,
+      "_id": "qk9sGrXqY0U1Bywq"
+    },
+    {
+      "nome": "Natalie Eaton",
+      "preco": 7723,
+      "descricao": "Meeting free kid dinner travel sit.",
+      "quantidade": 5866,
+      "_id": "qt4WUAUNERDIABv5"
+    },
+    {
+      "nome": "Joel Foley",
+      "preco": 5579,
+      "descricao": "Know spend lawyer necessary source wind.",
+      "quantidade": 2631,
+      "_id": "r8kBPeV9QapVSraM"
+    },
+    {
+      "nome": "Lauren Mason",
+      "preco": 2355,
+      "descricao": "Light accept property mother fly.",
+      "quantidade": 8416,
+      "_id": "sYNR49006p5XGsEY"
+    },
+    {
+      "nome": "city",
+      "preco": 808,
+      "descricao": "Ready to probably.",
+      "quantidade": 3186,
+      "_id": "sv1yQ0sv3C8XAQzS"
+    },
+    {
+      "nome": "Produto S1x7qqEY",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto S1x7qqEY",
+      "quantidade": 9,
+      "_id": "t4UE6tkScSu466ZH"
+    },
+    {
+      "nome": "Produto6302",
+      "preco": 100,
+      "descricao": "Produto: transition ubiquitous initiatives",
+      "quantidade": 0,
+      "_id": "tSgRwIY3dcfePTGx"
+    },
+    {
+      "nome": "Produto Gde6xw1L",
+      "preco": 100,
+      "descricao": "Descri\u00e7\u00e3o do produto Gde6xw1L",
+      "quantidade": 10,
+      "_id": "uIdE2htgkqT95zsP"
+    },
+    {
+      "nome": "Antarctica (the territory South of 60 deg S)",
+      "preco": 60,
+      "descricao": "Teclado Gamer",
+      "quantidade": 4,
+      "_id": "uxEiX6fuU3s017qf"
+    },
+    {
+      "nome": "his",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "v1DZw14dOxIHRomJ"
+    },
+    {
+      "nome": "Produto6367",
+      "preco": 100,
+      "descricao": "Produto de Teste 5948",
+      "quantidade": 100,
+      "_id": "vCvKPVWfUJbAKfr0"
+    },
+    {
+      "nome": "beatae",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "vL9cHVx4USnbAO40"
+    },
+    {
+      "nome": "use-35524",
+      "preco": 777,
+      "descricao": "Produto do Carrinho",
+      "quantidade": 5,
+      "_id": "vMxOPUWeKqEYb1Ou"
+    },
+    {
+      "nome": "Produto8996",
+      "preco": 100,
+      "descricao": "Produto: morph dot-com e-services",
+      "quantidade": 100,
+      "_id": "vSw2ZxD84zEyGiis"
+    },
+    {
+      "nome": "molestias",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 0,
+      "_id": "vWhWjTXw0WznVe0E"
+    },
+    {
+      "nome": "data",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "vlIVqO2vnwkO8dle"
+    },
+    {
+      "nome": "Nicholas Diaz",
+      "preco": 5364,
+      "descricao": "Soldier such accept voice deal memory.",
+      "quantidade": 6276,
+      "_id": "w7tm6yeVeV9shWSL"
+    },
+    {
+      "nome": "Produto6962",
+      "preco": 100,
+      "descricao": "Produto: exploit value-added systems",
+      "quantidade": 50,
+      "_id": "w9hgR0Pmm8cfcHTa"
+    },
+    {
+      "nome": "hair",
+      "preco": 150,
+      "descricao": "Produto B",
+      "quantidade": 8,
+      "_id": "wMLYBkuXO6sPd3WG"
+    },
+    {
+      "nome": "Nicholas Patterson",
+      "preco": 2310,
+      "descricao": "Do above success president loss.",
+      "quantidade": 2987,
+      "_id": "wXgd0PlYE7NgENNH"
+    },
+    {
+      "nome": "social",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "weTnEQLPAz2DhZrG"
+    },
+    {
+      "nome": "first",
+      "preco": 3212,
+      "descricao": "Central worry go middle industry treatment again.",
+      "quantidade": 3919,
+      "_id": "x7lfRiBfkzayaw9f"
+    },
+    {
+      "nome": "Pianoooooo",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": "3801",
+      "_id": "x9vIgebBnnou9oAm"
+    },
+    {
+      "nome": "Aaron Sullivan",
+      "preco": 225,
+      "descricao": "Indicate too learn seem film research.",
+      "quantidade": 9472,
+      "_id": "xyRCiynhp6RPdiKW"
+    },
+    {
+      "nome": "Nicole Baker",
+      "preco": 9552,
+      "descricao": "Region difficult suffer.",
+      "quantidade": 8321,
+      "_id": "yjKAvQBFC9DoAPwg"
+    },
+    {
+      "nome": "Teclado",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "z9G6dN6nP3OlKXUx"
+    },
+    {
+      "nome": "id id",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "zI1m7BZjO3zuQqAU"
+    },
+    {
+      "nome": "pariatur pariatur",
+      "preco": 6661,
+      "descricao": "Test Product",
+      "quantidade": 10,
+      "_id": "zJxYhxg96VwY0jj1"
+    },
+    {
+      "nome": "place",
+      "preco": 470,
+      "descricao": " Mouse",
+      "quantidade": 381,
+      "_id": "zKf1Fm4WGgvU3Rn7"
+    },
+    {
+      "nome": "wish",
+      "preco": 9364,
+      "descricao": "I house left concern.",
+      "quantidade": 8714,
+      "_id": "zP5uSeyc8S4ZiOvm"
+    },
+    {
+      "nome": "James Miles",
+      "preco": 4796,
+      "descricao": "Most among affect when player his indicate.",
+      "quantidade": 9275,
+      "_id": "zqqCvKJMp6qypWUW"
+    }
+  ]
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.234902" elapsed="0.000470"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.229396" elapsed="0.006036"/>
+</kw>
+<tag>Getprodutos</tag>
+<status status="PASS" start="2025-06-05T18:10:59.713119" elapsed="0.522569"/>
+</test>
+<test id="s1-t4" name="CT-025 - - Exclusão de produto válido" line="63">
+<kw name="Criar dados validos" owner="usuarios_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.237271" level="INFO">${nome} = Amy Johnson</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:11:00.236945" elapsed="0.000356"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.237638" level="INFO">${email} = carla13@example.net</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:11:00.237446" elapsed="0.000210"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.237820" level="INFO">${senha} = 553984229</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:11:00.237728" elapsed="0.000108"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.238040" level="INFO">${nome} = Amy Johnson</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.237922" elapsed="0.000164"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.238282" level="INFO">${email} = carla13@example.net</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.238173" elapsed="0.000136"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.238493" level="INFO">${senha} = 553984229</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.238398" elapsed="0.000118"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.236779" elapsed="0.001774"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.238848" level="INFO">${payload} = {'nome': 'Amy Johnson', 'email': 'carla13@example.net', 'password': '553984229', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<arg>administrador=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.238620" elapsed="0.000259"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.239135" level="INFO">${payload} = {'nome': 'Amy Johnson', 'email': 'carla13@example.net', 'password': '553984229', 'administrador': 'true'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.238981" elapsed="0.000213"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:11:00.239233" elapsed="0.000033"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:00.236498" elapsed="0.002846"/>
+</kw>
+<kw name="Enviar requisição POST para /usuarios" owner="usuarios_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:00.406632" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '105', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Amy Johnson", "email": "carla13@example.net", "password": "553984229", "administrador": "true"}' 
+ </msg>
+<msg time="2025-06-05T18:11:00.406731" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '21c4d0b75f44535ea1d9e1ec9ba83066', 'date': 'Thu, 05 Jun 2025 21:10:59 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "h6S94IjmyVfYexcf"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:00.406801" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:00.407109" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.239803" elapsed="0.167346"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.407577" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.407364" elapsed="0.000262"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.239638" elapsed="0.168053"/>
+</kw>
+<kw name="Gerar credenciais" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.408849" level="INFO">${nome} = Samuel Peters</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:11:00.408541" elapsed="0.000342"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.409148" level="INFO">${email} = rbridges@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:11:00.408964" elapsed="0.000201"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.409325" level="INFO">${senha} = 666285707</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:11:00.409232" elapsed="0.000110"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.409537" level="INFO">${nome} = Samuel Peters</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.409434" elapsed="0.000127"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.409722" level="INFO">${email} = rbridges@example.com</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.409631" elapsed="0.000114"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.409927" level="INFO">${senha} = 666285707</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.409811" elapsed="0.000151"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.408315" elapsed="0.001684"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.410699" level="INFO">${payload} = {'email': 'carla13@example.net', 'password': '553984229'}</msg>
+<var>${payload}</var>
+<arg>email=${payload['email']}</arg>
+<arg>password=${payload['password']}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.410064" elapsed="0.000654"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.410921" level="INFO">${payload} = {'email': 'carla13@example.net', 'password': '553984229'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.410799" elapsed="0.000150"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.408011" elapsed="0.002976"/>
+</kw>
+<kw name="Enviar requisição POST para /login" owner="login_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:00.572957" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"email": "carla13@example.net", "password": "553984229"}' 
+ </msg>
+<msg time="2025-06-05T18:11:00.573031" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '55eb4c02f796e7f9a1d9e1ec9ba83d49', 'date': 'Thu, 05 Jun 2025 21:11:00 GMT', 'server': 'Google Frontend', 'Content-Length': '279'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgDHKGpbbZly08VcqHWKh3HTGKr8"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:00.573082" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:00.573360" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.411362" elapsed="0.162025"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.573736" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.573584" elapsed="0.000182"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-06-05T18:11:00.573804" elapsed="0.000033"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:00.411193" elapsed="0.162721"/>
+</kw>
+<kw name="Salvar token gerado" owner="base">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:11:00.574672" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgDHKGpbbZly08VcqHWKh3...</msg>
+<var>${token}</var>
+<arg>${response.json()}</arg>
+<arg>authorization</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.574319" elapsed="0.000373"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.574851" level="INFO">Token gerado: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgDHKGpbbZly08VcqHWKh3HTGKr8</msg>
+<arg>Token gerado: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.574772" elapsed="0.000107"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.575046" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgDHKGpbbZly08VcqHWKh3...</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.574952" elapsed="0.000119"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="PASS" start="2025-06-05T18:11:00.575099" elapsed="0.000019"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:00.574134" elapsed="0.001041"/>
+</kw>
+<kw name="Cadastrar produto" owner="produtos_keywords">
+<kw name="Criar dados dinamicos para produto" owner="dynamics">
+<kw name="Word" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.575767" level="INFO">${nomeproduto} = interview</msg>
+<var>${nomeproduto}</var>
+<doc>Generate a word.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.575648" elapsed="0.000137"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.575933" level="INFO">${preco} = 3828</msg>
+<var>${preco}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.575853" elapsed="0.000097"/>
+</kw>
+<kw name="Sentence" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.576107" level="INFO">${descricao} = As during another.</msg>
+<var>${descricao}</var>
+<doc>Generate a sentence.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.576014" elapsed="0.000109"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.576255" level="INFO">${quantidade} = 3192</msg>
+<var>${quantidade}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.576184" elapsed="0.000087"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.576462" level="INFO">${quantidade_carrinho} = 2</msg>
+<var>${quantidade_carrinho}</var>
+<arg>min=1</arg>
+<arg>max=10</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.576331" elapsed="0.000147"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.576672" level="INFO">${nomeproduto} = interview</msg>
+<arg>${nomeproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.576558" elapsed="0.000140"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.576861" level="INFO">${preco} = 3828</msg>
+<arg>${preco}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.576767" elapsed="0.000118"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.577052" level="INFO">${descricao} = As during another.</msg>
+<arg>${descricao}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.576950" elapsed="0.000125"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.577380" level="INFO">${quantidade} = 3192</msg>
+<arg>${quantidade}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.577249" elapsed="0.000161"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.577595" level="INFO">${quantidade_carrinho} = 2</msg>
+<arg>${quantidade_carrinho}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.577487" elapsed="0.000133"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.575517" elapsed="0.002151"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.577932" level="INFO">${payload} = {'nome': 'interview', 'preco': 3828, 'descricao': 'As during another.', 'quantidade': 3192}</msg>
+<var>${payload}</var>
+<arg>nome=${nomeproduto}</arg>
+<arg>preco=${preco}</arg>
+<arg>descricao=${descricao}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.577735" elapsed="0.000214"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.578127" level="INFO">${payload} = {'nome': 'interview', 'preco': 3828, 'descricao': 'As during another.', 'quantidade': 3192}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.578029" elapsed="0.000122"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:11:00.578180" elapsed="0.000022"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:00.575342" elapsed="0.002926"/>
+</kw>
+<kw name="Enviar requisição POST para /produtos com token" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.578710" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgD...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.578589" elapsed="0.000139"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:00.744933" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgDHKGpbbZly08VcqHWKh3HTGKr8', 'Content-Length': '91', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "interview", "preco": 3828, "descricao": "As during another.", "quantidade": 3192}' 
+ </msg>
+<msg time="2025-06-05T18:11:00.745004" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '035243063f4be2d8a1d9e1ec9ba83ffc', 'date': 'Thu, 05 Jun 2025 21:11:00 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "XSmDhV2sZSQ7hd30"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:00.745054" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:00.745339" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<var>${response_produto}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.578809" elapsed="0.166590"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.745849" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<arg>${response_produto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.745622" elapsed="0.000274"/>
+</kw>
+<msg time="2025-06-05T18:11:00.745994" level="INFO">${response_produto} = None</msg>
+<var>${response_produto}</var>
+<status status="PASS" start="2025-06-05T18:11:00.578442" elapsed="0.167570"/>
+</kw>
+<kw name="Extrair ID do produto" owner="produtos_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.746759" level="INFO">${json} = {'message': 'Cadastro realizado com sucesso', '_id': 'XSmDhV2sZSQ7hd30'}</msg>
+<var>${json}</var>
+<arg>${response_produto.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.746427" elapsed="0.000351"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.746942" level="INFO">Retorno do produto:
+{'message': 'Cadastro realizado com sucesso', '_id': 'XSmDhV2sZSQ7hd30'}</msg>
+<arg>Retorno do produto:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.746856" elapsed="0.000115"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.747041" elapsed="0.000603"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:11:00.747819" level="INFO">${idproduto} = XSmDhV2sZSQ7hd30</msg>
+<var>${idproduto}</var>
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.747724" elapsed="0.000111"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.747967" level="INFO">ID do produto: XSmDhV2sZSQ7hd30</msg>
+<arg>ID do produto: ${idproduto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.747901" elapsed="0.000090"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.748158" level="INFO">${idproduto} = XSmDhV2sZSQ7hd30</msg>
+<arg>${idproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.748068" elapsed="0.000113"/>
+</kw>
+<arg>${response_produto}</arg>
+<status status="PASS" start="2025-06-05T18:11:00.746210" elapsed="0.002004"/>
+</kw>
+<kw name="Enviar requisição DELETE para /produtos/id com token" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.748687" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgD...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.748560" elapsed="0.000146"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:00.912155" level="INFO">DELETE Request : url=https://compassuol.serverest.dev/produtos/XSmDhV2sZSQ7hd30 
+ path_url=/produtos/XSmDhV2sZSQ7hd30 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxhMTNAZXhhbXBsZS5uZXQiLCJwYXNzd29yZCI6IjU1Mzk4NDIyOSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.xUZ1NOIPtQNZ6BOcgDHKGpbbZly08VcqHWKh3HTGKr8', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-05T18:11:00.912294" level="INFO">DELETE Response : url=https://compassuol.serverest.dev/produtos/XSmDhV2sZSQ7hd30 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'cd50ca9351489d2ca1d9e1ec9ba83ff4', 'date': 'Thu, 05 Jun 2025 21:11:00 GMT', 'server': 'Google Frontend', 'Content-Length': '51'} 
+ body={
+    "message": "Registro excluído com sucesso"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:00.912423" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:00.912747" level="INFO">${response_produto} = &lt;Response [200]&gt;</msg>
+<var>${response_produto}</var>
+<arg>serverest</arg>
+<arg>/produtos/${idproduto}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.748826" elapsed="0.163947"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.913101" level="INFO">${response_produto} = &lt;Response [200]&gt;</msg>
+<arg>${response_produto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.912948" elapsed="0.000183"/>
+</kw>
+<arg>${idproduto}</arg>
+<status status="PASS" start="2025-06-05T18:11:00.748390" elapsed="0.164790"/>
+</kw>
+<kw name="Validar status code 200" owner="produtos_keywords">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.913935" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response_produto.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.913632" elapsed="0.000344"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.914291" level="INFO">Status recebido: 200</msg>
+<arg>Status recebido: ${response_produto.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.914052" elapsed="0.000277"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.913462" elapsed="0.000905"/>
+</kw>
+<kw name="Verificar mensagem de sucesso, e exclusao de produto" owner="produtos_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.915677" level="INFO">${json} = {
+  "message": "Registro exclu\u00eddo com sucesso"
+}</msg>
+<var>${json}</var>
+<arg>json.dumps(${response_produto.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.914880" elapsed="0.000818"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.915859" level="INFO">JSON da resposta:
+{
+  "message": "Registro exclu\u00eddo com sucesso"
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.915778" elapsed="0.000109"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:11:00.916266" level="INFO">${message} = Registro excluído com sucesso</msg>
+<var>${message}</var>
+<arg>${response_produto.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.915958" elapsed="0.000326"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Registro excluído com sucesso</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.916360" elapsed="0.000092"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.914613" elapsed="0.001876"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.236112" elapsed="0.680565"/>
+</test>
+<test id="s1-t5" name="CT-026 - - Exclusão de produto vinculado a carrinho" line="88">
+<kw name="Criar dados validos" owner="usuarios_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.918443" level="INFO">${nome} = Timothy Rose</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:11:00.918078" elapsed="0.000397"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.918862" level="INFO">${email} = bsteele@example.org</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:11:00.918591" elapsed="0.000288"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:00.919036" level="INFO">${senha} = W84208775</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:11:00.918945" elapsed="0.000107"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.919244" level="INFO">${nome} = Timothy Rose</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.919139" elapsed="0.000130"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.919430" level="INFO">${email} = bsteele@example.org</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.919339" elapsed="0.000115"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.919611" level="INFO">${senha} = W84208775</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.919522" elapsed="0.000112"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.917857" elapsed="0.001810"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.919899" level="INFO">${payload} = {'nome': 'Timothy Rose', 'email': 'bsteele@example.org', 'password': 'W84208775', 'administrador': 'true'}</msg>
+<var>${payload}</var>
+<arg>nome=${nome}</arg>
+<arg>email=${email}</arg>
+<arg>password=${senha}</arg>
+<arg>administrador=true</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.919729" elapsed="0.000187"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:00.920085" level="INFO">${payload} = {'nome': 'Timothy Rose', 'email': 'bsteele@example.org', 'password': 'W84208775', 'administrador': 'true'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.919992" elapsed="0.000169"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:11:00.920196" elapsed="0.000029"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:00.917567" elapsed="0.002719"/>
+</kw>
+<kw name="Enviar requisição POST para /usuarios" owner="usuarios_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:01.083907" level="INFO">POST Request : url=https://compassuol.serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '106', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Timothy Rose", "email": "bsteele@example.org", "password": "W84208775", "administrador": "true"}' 
+ </msg>
+<msg time="2025-06-05T18:11:01.083979" level="INFO">POST Response : url=https://compassuol.serverest.dev/usuarios 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '4fb3c3b1c3b33f12a1d9e1ec9ba83ded', 'date': 'Thu, 05 Jun 2025 21:11:00 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "AroztAngrwEW3jkS"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:01.084028" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:01.084274" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:00.920596" elapsed="0.163720"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.084776" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.084542" elapsed="0.000286"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.920452" elapsed="0.164447"/>
+</kw>
+<kw name="Gerar credenciais" owner="login_keywords">
+<kw name="Criar dados dinamicos para usuario" owner="dynamics">
+<kw name="Name" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.085950" level="INFO">${nome} = Carl Wagner</msg>
+<var>${nome}</var>
+<doc>:example: 'John Doe'</doc>
+<status status="PASS" start="2025-06-05T18:11:01.085688" elapsed="0.000282"/>
+</kw>
+<kw name="Email" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.086232" level="INFO">${email} = yallen@example.com</msg>
+<var>${email}</var>
+<status status="PASS" start="2025-06-05T18:11:01.086045" elapsed="0.000205"/>
+</kw>
+<kw name="Passport Number" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.086414" level="INFO">${senha} = Q64614068</msg>
+<var>${senha}</var>
+<doc>Generate a passport number by replacing tokens to be alphanumeric</doc>
+<status status="PASS" start="2025-06-05T18:11:01.086318" elapsed="0.000112"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.086617" level="INFO">${nome} = Carl Wagner</msg>
+<arg>${nome}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.086510" elapsed="0.000132"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.086815" level="INFO">${email} = yallen@example.com</msg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.086711" elapsed="0.000127"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.086997" level="INFO">${senha} = Q64614068</msg>
+<arg>${senha}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.086906" elapsed="0.000113"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.085513" elapsed="0.001541"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.087671" level="INFO">${payload} = {'email': 'bsteele@example.org', 'password': 'W84208775'}</msg>
+<var>${payload}</var>
+<arg>email=${payload['email']}</arg>
+<arg>password=${payload['password']}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.087118" elapsed="0.000571"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.087867" level="INFO">${payload} = {'email': 'bsteele@example.org', 'password': 'W84208775'}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.087767" elapsed="0.000124"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.085199" elapsed="0.002726"/>
+</kw>
+<kw name="Enviar requisição POST para /login" owner="login_keywords">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:01.252167" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"email": "bsteele@example.org", "password": "W84208775"}' 
+ </msg>
+<msg time="2025-06-05T18:11:01.252271" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '57ad982c640558e7a1d9e1ec9ba83073', 'date': 'Thu, 05 Jun 2025 21:11:00 GMT', 'server': 'Google Frontend', 'Content-Length': '279'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YBEzIBNpnKdDoLou6n2qls6G06s"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:01.252348" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:01.252647" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=${status_esperado}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.088264" elapsed="0.164415"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.253007" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.252858" elapsed="0.000243"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-06-05T18:11:01.253200" elapsed="0.000078"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:01.088107" elapsed="0.165367"/>
+</kw>
+<kw name="Salvar token gerado" owner="base">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:11:01.254323" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YBEzIBNpnKdDoLou6n2ql...</msg>
+<var>${token}</var>
+<arg>${response.json()}</arg>
+<arg>authorization</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.253925" elapsed="0.000419"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.254509" level="INFO">Token gerado: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YBEzIBNpnKdDoLou6n2qls6G06s</msg>
+<arg>Token gerado: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.254427" elapsed="0.000111"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.254715" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YBEzIBNpnKdDoLou6n2ql...</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.254615" elapsed="0.000124"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="PASS" start="2025-06-05T18:11:01.254769" elapsed="0.000022"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:01.253737" elapsed="0.001112"/>
+</kw>
+<kw name="Cadastrar produto" owner="produtos_keywords">
+<kw name="Criar dados dinamicos para produto" owner="dynamics">
+<kw name="Word" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.255445" level="INFO">${nomeproduto} = must</msg>
+<var>${nomeproduto}</var>
+<doc>Generate a word.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.255327" elapsed="0.000135"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.255613" level="INFO">${preco} = 6383</msg>
+<var>${preco}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.255532" elapsed="0.000096"/>
+</kw>
+<kw name="Sentence" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.255790" level="INFO">${descricao} = Ago describe term develop into.</msg>
+<var>${descricao}</var>
+<doc>Generate a sentence.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.255695" elapsed="0.000111"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.255942" level="INFO">${quantidade} = 5523</msg>
+<var>${quantidade}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.255870" elapsed="0.000086"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.256150" level="INFO">${quantidade_carrinho} = 1</msg>
+<var>${quantidade_carrinho}</var>
+<arg>min=1</arg>
+<arg>max=10</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.256018" elapsed="0.000147"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.256341" level="INFO">${nomeproduto} = must</msg>
+<arg>${nomeproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.256240" elapsed="0.000124"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.256520" level="INFO">${preco} = 6383</msg>
+<arg>${preco}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.256430" elapsed="0.000114"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.256708" level="INFO">${descricao} = Ago describe term develop into.</msg>
+<arg>${descricao}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.256608" elapsed="0.000122"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.256887" level="INFO">${quantidade} = 5523</msg>
+<arg>${quantidade}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.256795" elapsed="0.000115"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.257073" level="INFO">${quantidade_carrinho} = 1</msg>
+<arg>${quantidade_carrinho}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.256974" elapsed="0.000122"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.255197" elapsed="0.001931"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.257377" level="INFO">${payload} = {'nome': 'must', 'preco': 6383, 'descricao': 'Ago describe term develop into.', 'quantidade': 5523}</msg>
+<var>${payload}</var>
+<arg>nome=${nomeproduto}</arg>
+<arg>preco=${preco}</arg>
+<arg>descricao=${descricao}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.257190" elapsed="0.000206"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.257564" level="INFO">${payload} = {'nome': 'must', 'preco': 6383, 'descricao': 'Ago describe term develop into.', 'quantidade': 5523}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.257469" elapsed="0.000118"/>
+</kw>
+<return>
+<value>${payload}</value>
+<status status="PASS" start="2025-06-05T18:11:01.257615" elapsed="0.000019"/>
+</return>
+<status status="PASS" start="2025-06-05T18:11:01.255021" elapsed="0.002667"/>
+</kw>
+<kw name="Enviar requisição POST para /produtos com token" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.258112" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YB...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.257996" elapsed="0.000133"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:01.439934" level="INFO">POST Request : url=https://compassuol.serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YBEzIBNpnKdDoLou6n2qls6G06s', 'Content-Length': '99', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "must", "preco": 6383, "descricao": "Ago describe term develop into.", "quantidade": 5523}' 
+ </msg>
+<msg time="2025-06-05T18:11:01.440153" level="INFO">POST Response : url=https://compassuol.serverest.dev/produtos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '1f708a2b3407d36da1d9e1ec9ba838f6', 'date': 'Thu, 05 Jun 2025 21:11:00 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "uPBs6rqIFI3TD1Qz"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:01.440230" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:01.440508" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<var>${response_produto}</var>
+<arg>serverest</arg>
+<arg>/produtos</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.258198" elapsed="0.182352"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.441005" level="INFO">${response_produto} = &lt;Response [201]&gt;</msg>
+<arg>${response_produto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.440774" elapsed="0.000280"/>
+</kw>
+<msg time="2025-06-05T18:11:01.441154" level="INFO">${response_produto} = None</msg>
+<var>${response_produto}</var>
+<status status="PASS" start="2025-06-05T18:11:01.257857" elapsed="0.183323"/>
+</kw>
+<kw name="Extrair ID do produto" owner="produtos_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.442095" level="INFO">${json} = {'message': 'Cadastro realizado com sucesso', '_id': 'uPBs6rqIFI3TD1Qz'}</msg>
+<var>${json}</var>
+<arg>${response_produto.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.441656" elapsed="0.000464"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.442327" level="INFO">Retorno do produto:
+{'message': 'Cadastro realizado com sucesso', '_id': 'uPBs6rqIFI3TD1Qz'}</msg>
+<arg>Retorno do produto:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.442228" elapsed="0.000133"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.442435" elapsed="0.000081"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:11:01.442769" level="INFO">${idproduto} = uPBs6rqIFI3TD1Qz</msg>
+<var>${idproduto}</var>
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.442670" elapsed="0.000116"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.442935" level="INFO">ID do produto: uPBs6rqIFI3TD1Qz</msg>
+<arg>ID do produto: ${idproduto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.442856" elapsed="0.000108"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.443140" level="INFO">${idproduto} = uPBs6rqIFI3TD1Qz</msg>
+<arg>${idproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.443039" elapsed="0.000125"/>
+</kw>
+<arg>${response_produto}</arg>
+<status status="PASS" start="2025-06-05T18:11:01.441411" elapsed="0.001788"/>
+</kw>
+<kw name="Criar carrinho" owner="carrinho_keywords">
+<kw name="Criar dados dinamicos para produto" owner="dynamics">
+<kw name="Word" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.444264" level="INFO">${nomeproduto} = wind</msg>
+<var>${nomeproduto}</var>
+<doc>Generate a word.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.444060" elapsed="0.000235"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.444553" level="INFO">${preco} = 3311</msg>
+<var>${preco}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.444440" elapsed="0.000131"/>
+</kw>
+<kw name="Sentence" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.444741" level="INFO">${descricao} = Your section however nation response training media.</msg>
+<var>${descricao}</var>
+<doc>Generate a sentence.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.444639" elapsed="0.000119"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.444917" level="INFO">${quantidade} = 5777</msg>
+<var>${quantidade}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.444837" elapsed="0.000097"/>
+</kw>
+<kw name="Random Int" owner="FakerLibrary">
+<msg time="2025-06-05T18:11:01.445137" level="INFO">${quantidade_carrinho} = 8</msg>
+<var>${quantidade_carrinho}</var>
+<arg>min=1</arg>
+<arg>max=10</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.444999" elapsed="0.000155"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.445350" level="INFO">${nomeproduto} = wind</msg>
+<arg>${nomeproduto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.445235" elapsed="0.000139"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.445551" level="INFO">${preco} = 3311</msg>
+<arg>${preco}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.445456" elapsed="0.000126"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.445737" level="INFO">${descricao} = Your section however nation response training media.</msg>
+<arg>${descricao}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.445647" elapsed="0.000112"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.445929" level="INFO">${quantidade} = 5777</msg>
+<arg>${quantidade}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.445836" elapsed="0.000115"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.446111" level="INFO">${quantidade_carrinho} = 8</msg>
+<arg>${quantidade_carrinho}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.446014" elapsed="0.000119"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.443804" elapsed="0.002364"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.446395" level="INFO">${produto} = {'idProduto': 'uPBs6rqIFI3TD1Qz', 'quantidade': 8}</msg>
+<var>${produto}</var>
+<arg>idProduto=${idproduto}</arg>
+<arg>quantidade=${quantidade_carrinho}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.446238" elapsed="0.000229"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.446639" level="INFO">${lista} = [{'idProduto': 'uPBs6rqIFI3TD1Qz', 'quantidade': 8}]</msg>
+<var>${lista}</var>
+<arg>${produto}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.446547" elapsed="0.000108"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.446854" level="INFO">${payload} = {'produtos': [{'idProduto': 'uPBs6rqIFI3TD1Qz', 'quantidade': 8}]}</msg>
+<var>${payload}</var>
+<arg>produtos=${lista}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.446724" elapsed="0.000147"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.447039" level="INFO">${payload} = {'produtos': [{'idProduto': 'uPBs6rqIFI3TD1Qz', 'quantidade': 8}]}</msg>
+<arg>${payload}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.446942" elapsed="0.000121"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.443487" elapsed="0.003613"/>
+</kw>
+<kw name="Enviar requisição POST para /carrinhos" owner="carrinho_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.447667" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YB...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.447539" elapsed="0.000148"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:01.617044" level="INFO">POST Request : url=https://compassuol.serverest.dev/carrinhos 
+ path_url=/carrinhos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YBEzIBNpnKdDoLou6n2qls6G06s', 'Content-Length': '66', 'Content-Type': 'application/json'} 
+ body=b'{"produtos": [{"idProduto": "uPBs6rqIFI3TD1Qz", "quantidade": 8}]}' 
+ </msg>
+<msg time="2025-06-05T18:11:01.617177" level="INFO">POST Response : url=https://compassuol.serverest.dev/carrinhos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '48713e6bbcab94b9a1d9e1ec9ba8314c', 'date': 'Thu, 05 Jun 2025 21:11:01 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
+ body={
+    "message": "Cadastro realizado com sucesso",
+    "_id": "Q4KAjQ60G1iZ74Ln"
+} 
+ </msg>
+<msg time="2025-06-05T18:11:01.617264" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:01.617569" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/carrinhos</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.447764" elapsed="0.169858"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.618156" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.617912" elapsed="0.000296"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.447375" elapsed="0.170907"/>
+</kw>
+<kw name="Extrair ID do carrinho" owner="carrinho_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.619132" level="INFO">${json} = {'message': 'Cadastro realizado com sucesso', '_id': 'Q4KAjQ60G1iZ74Ln'}</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.618763" elapsed="0.000388"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.619437" level="INFO">Retorno do produto:
+{'message': 'Cadastro realizado com sucesso', '_id': 'Q4KAjQ60G1iZ74Ln'}</msg>
+<arg>Retorno do produto:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.619326" elapsed="0.000142"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.619562" elapsed="0.000096"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:11:01.619847" level="INFO">${idcarrinho} = Q4KAjQ60G1iZ74Ln</msg>
+<var>${idcarrinho}</var>
+<arg>${json}</arg>
+<arg>_id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.619739" elapsed="0.000179"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.620108" level="INFO">ID do produto: Q4KAjQ60G1iZ74Ln</msg>
+<arg>ID do produto: ${idcarrinho}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.620012" elapsed="0.000126"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.620334" level="INFO">${idcarrinho} = Q4KAjQ60G1iZ74Ln</msg>
+<arg>${idcarrinho}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.620226" elapsed="0.000134"/>
+</kw>
+<arg>${response}</arg>
+<status status="PASS" start="2025-06-05T18:11:01.618543" elapsed="0.001854"/>
+</kw>
+<kw name="Enviar requisição DELETE para /produtos/id com token" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.621783" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YB...</msg>
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.621603" elapsed="0.000202"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-06-05T18:11:01.812494" level="INFO">DELETE Request : url=https://compassuol.serverest.dev/produtos/uPBs6rqIFI3TD1Qz 
+ path_url=/produtos/uPBs6rqIFI3TD1Qz 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJzdGVlbGVAZXhhbXBsZS5vcmciLCJwYXNzd29yZCI6Ilc4NDIwODc3NSIsImlhdCI6MTc0OTE1Nzg2MCwiZXhwIjoxNzQ5MTU4NDYwfQ.-RZmR8gyrTndyat0YBEzIBNpnKdDoLou6n2qls6G06s', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-06-05T18:11:01.812694" level="INFO">DELETE Response : url=https://compassuol.serverest.dev/produtos/uPBs6rqIFI3TD1Qz 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'a27af2340aa4df13a1d9e1ec9ba833ff', 'date': 'Thu, 05 Jun 2025 21:11:01 GMT', 'server': 'Google Frontend', 'Content-Length': '135'} 
+ body={
+    "message": "Não é permitido excluir produto que faz parte de carrinho",
+    "idCarrinhos": [
+        "Q4KAjQ60G1iZ74Ln"
+    ]
+} 
+ </msg>
+<msg time="2025-06-05T18:11:01.812786" level="INFO">C:\Users\BLAST OFF\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'compassuol.serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-05T18:11:01.813074" level="INFO">${response_produto} = &lt;Response [400]&gt;</msg>
+<var>${response_produto}</var>
+<arg>serverest</arg>
+<arg>/produtos/${idproduto}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=ANY</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.621885" elapsed="0.191220"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.813479" level="INFO">${response_produto} = &lt;Response [400]&gt;</msg>
+<arg>${response_produto}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.813283" elapsed="0.000233"/>
+</kw>
+<arg>${idproduto}</arg>
+<status status="PASS" start="2025-06-05T18:11:01.620632" elapsed="0.192937"/>
+</kw>
+<kw name="Validar status code 400" owner="produtos_keywords">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.814688" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response_produto.status_code}</arg>
+<arg>400</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.814197" elapsed="0.000561"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.815261" level="INFO">Status recebido: 400</msg>
+<arg>Status recebido: ${response_produto.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.814890" elapsed="0.000399"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.813878" elapsed="0.001451"/>
+</kw>
+<kw name="Verificar mensagem indicando vínculo com carrinho" owner="produtos_keywords">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.816266" level="INFO">${json} = {
+  "message": "N\u00e3o \u00e9 permitido excluir produto que faz parte de carrinho",
+  "idCarrinhos": [
+    "Q4KAjQ60G1iZ74Ln"
+  ]
+}</msg>
+<var>${json}</var>
+<arg>json.dumps(${response_produto.json()}, indent=2)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.815660" elapsed="0.000627"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-05T18:11:01.816445" level="INFO">JSON da resposta:
+{
+  "message": "N\u00e3o \u00e9 permitido excluir produto que faz parte de carrinho",
+  "idCarrinhos": [
+    "Q4KAjQ60G1iZ74Ln"
+  ]
+}</msg>
+<arg>JSON da resposta:\n${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.816366" elapsed="0.000106"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-06-05T18:11:01.816824" level="INFO">${message} = Não é permitido excluir produto que faz parte de carrinho</msg>
+<var>${message}</var>
+<arg>${response_produto.json()}</arg>
+<arg>message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.816543" elapsed="0.000298"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${message}</arg>
+<arg>Não é permitido excluir produto que faz parte de carrinho</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-05T18:11:01.816917" elapsed="0.000090"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:01.815512" elapsed="0.001533"/>
+</kw>
+<status status="PASS" start="2025-06-05T18:11:00.917100" elapsed="0.900083"/>
+</test>
+<doc>Arquivo de testes para Endpoint/produtos</doc>
+<status status="PASS" start="2025-06-05T18:10:58.010882" elapsed="3.806944"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Getprodutos</stat>
+<stat pass="1" fail="0" skip="0">Postproduto</stat>
+<stat pass="1" fail="0" skip="0">Putproduto</stat>
+</tag>
+<suite>
+<stat name="Produtos Tests" id="s1" pass="5" fail="0" skip="0">Produtos Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
