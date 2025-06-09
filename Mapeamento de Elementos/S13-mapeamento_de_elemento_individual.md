@@ -64,7 +64,7 @@ Este repositório foi desenvolvido como parte da atividade de mapeamento de elem
 
 | Nome Criado                     | Tipo de Seletor         | Justificativa |
 |--------------------------------|--------------------------|---------------|
-| MENU_LOJAPARCEIRA              | Seletor Customizado      | O elemento não possuía `id` ou `class` direto. O atributo `data-text="Lojas Parceiras"` foi o mais específico e estável para identificar o item de menu. Ideal para testes que precisam simular cliques em navegação. |
+| MENU_LOJAPARCEIRA              | Seletor Customizado      |  O atributo `data-text="Lojas Parceiras"` foi o mais específico e estável para identificar o item de menu.|
 | CAMP0_PESQUISA                 | Name Único               | O campo de busca possui o atributo `name='Ntt'`, permitindo localização rápida e sem ambiguidade, ideal para preenchimento automatizado. |
 | ICN_SACOLA                     | Class Name               | O ícone da sacola possui uma classe exclusiva (`.ic-sacola`) que não sofre alteração com conteúdo dinâmico e permite identificação clara. |
 | BTN_NEXTCARROSSEL_LOJAPARCEIRA| ID Único                 | O botão de próximo no carrossel tem um `id` único (`#next-arrow-categoriesCarousel`), sendo o melhor seletor possível para ações de navegação por elementos visuais. |
