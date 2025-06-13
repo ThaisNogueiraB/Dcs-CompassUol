@@ -128,11 +128,11 @@ Este repositório contém a documentação e os artefatos gerados durante o dese
 
 ### Mapeamento de Elementos
 - `S13-mapeamento_de_elemento_individual.md`
-- - `S13-mapeamento_de_elemento_squad.md`
+- `S13-mapeamento_de_elemento_squad.md`
 
 ### Automação de Testes Web em Robot Framework
 - `QAx`
-- `mark85-robot-express`
+- - `mark85-robot-express`
 
 
 
