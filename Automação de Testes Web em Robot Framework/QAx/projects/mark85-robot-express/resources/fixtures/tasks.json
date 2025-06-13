@@ -1,0 +1,57 @@
+{
+    "create":{
+        "user":{
+            "name":"fulano teste",
+            "email":"fulano@teste.com",
+            "password":"fulano123"
+        },
+        "tasks":{
+            "name":"Criar uma nova versao do Ipod",
+            "tags":["ios","music","ipod"]
+        }
+    },
+      "duplicate":{
+        "user":{
+            "name":"thais nogueira",
+            "email":"thais@teste.com",
+            "password":"teste123"
+        },
+        "tasks":{
+            "name":"recrutar novas meta humanos",
+            "tags":[]
+        }
+    },
+     "tags_limit":{
+        "user":{
+            "name":"nome novo",
+            "email":"nomenovo@teste.com",
+            "password":"teste123"
+        },
+        "tasks":{
+            "name":"estudar phyton",
+            "tags":["qax","python","programaçao","pip"]
+        }
+    },
+    "done":{
+        "user":{
+            "name":"novo nome",
+            "email":"novonome@teste.com",
+            "password":"teste123"
+        },
+        "tasks":{
+            "name":"Contruir uma nova ia",
+            "tags":["jarvis","ultron","ark"]
+        }
+    },
+    "delete":{
+        "user":{
+            "name":"teste nome",
+            "email":"testenome@teste.com",
+            "password":"teste123"
+        },
+        "tasks":{
+            "name":"Construir a ia do ultron",
+            "tags":["ultron","ia"]
+        }
+    }
+}
