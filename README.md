@@ -123,3 +123,16 @@ Este repositório contém a documentação e os artefatos gerados durante o dese
 -  `S11- Plano de teste Serverest Alterado.pdf`
 -  `S11- Descrição das Alterações Realizadas no Plano de teste alterado.pdf`
 -  `S11- Relatório de Testes - API ServeRest`
+
+## Sprint07
+
+### Mapeamento de Elementos
+- `S13-mapeamento_de_elemento_individual.md`
+- - `S13-mapeamento_de_elemento_squad.md`
+
+### Automação de Testes Web em Robot Framework
+- `QAx`
+- `mark85-robot-express`
+
+
+
